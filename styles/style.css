@@ -1,0 +1,235 @@
+html,body{
+  height: 100%;
+    overflow: hidden;
+}
+
+.modal{
+  z-index: 20000 !important;
+}
+.modal-backdrop{
+  z-index: 18000;
+}
+
+/* scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b0b4bb;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #9d9fa3;
+}
+
+.global-nav .nav-link{
+  font-size: 0.9rem;
+  color: #495b66;
+}
+
+.global-nav .form-control:hover{
+ transition: .3s ease;
+ }
+.global-nav .form-control:hover{
+ background-color: rgba(13, 110, 253, 0.05);
+ border-color:rgba(13, 110, 253, 0.5);
+}
+
+.sub-nav .nav-link {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem !important;
+}
+
+.nav-link:hover,
+.nav-icon:hover {
+  color:#0d6efd !important;
+  background-color: rgba(13, 110, 253, 0.2);
+  border-radius: 4px;
+}
+
+.nav-icon{
+  display: flex;
+}
+
+.nav-icon i{
+  transition: .3s ease;
+}
+
+.nav-icon[aria-expanded="false"] i{
+  transform: rotate(180deg);
+  }
+
+.active {
+  color: #0d6efd !important;
+  font-weight: 600;
+}
+
+.nav-link.active{
+  border-bottom: 3px solid #0d6efd;
+
+  margin-bottom: -0.5rem;
+}
+
+#left-nav-panel {
+  height: calc(100vh - 6.625rem);
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  overflow-x:hidden;
+  overflow-y: auto;
+  background-color: white;
+  border-right: 1px solid #dee2e6;
+  z-index: 999;
+}
+
+.bd-links {
+  overflow: auto;
+  font-weight: 600;
+}
+
+.bd-links {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0.5rem;
+  width: 12vw;
+
+  /* height: calc(100vh - 7rem); */
+  overflow-y: auto;
+}
+
+@media (max-width:1600px) {
+    .bd-links{
+        width: 18vw;
+    }  
+}
+
+@media (max-width:1024px) {
+  #left-nav-panel{
+    position: absolute;
+    height: 100vh;
+  }
+    .bd-links{
+        width: 100vw;
+    }  
+}
+
+/* @media (max-width: 767.98px) {
+    .bd-links>ul {
+        padding:1.5rem .75rem;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #e9ecef
+    }
+} */
+
+.bd-links a {
+  padding: 0.1875rem 0.5rem;
+  margin-top: 0.125rem;
+  margin-left: 1.25rem;
+  color: rgba(0, 0, 0, 0.65);
+  text-decoration: none;
+}
+
+.bd-links a:hover,
+.bd-links a:focus {
+  color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(13, 110, 253, 0.1);
+}
+
+.bd-links .btn {
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: transparent;
+  border: 0;
+}
+
+.bd-links .btn:hover,
+.bd-links .btn:focus {
+  color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(13, 110, 253, 0.1);
+}
+
+.bd-links .btn:focus {
+  box-shadow: 0 0 0 1px rgba(13, 110, 253, 0.2);
+}
+
+.bd-links .btn::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("download.svg");
+  transition: transform 0.35s ease;
+  transform-origin: 0.5em 50%;
+}
+
+.bd-links .btn[aria-expanded="true"] {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.bd-links .btn[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.bd-links .active {
+  background-color: rgba(13, 110, 253, 0.1);
+}
+
+#main-container{
+  background-color: #f5f6f7;
+  width: 100%;
+  flex: 1;
+  height: calc(100vh - 6.625rem);
+  overflow-y: auto;
+}
+
+.btn-outline-new{
+  color: #495b66;
+  background-color: white;
+  border: 1px solid #c1c5c9;
+  transition: .2s ease;
+}
+
+.btn-outline-new:hover{
+  color: #0d6efd;
+  background-color: rgba(13, 110, 253, 0.1);
+  border: 1px solid rgba(13, 110, 253, 0.5);
+}
+
+#content-container .card-collapse{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#content-container .card-collapse::after {
+  width: 1.25em;
+  line-height: 0;
+  content: url("download.svg");
+  transition: transform 0.35s ease;
+  transform-origin: 0.5em 50%;
+  transform: scale(1.5,1.5) rotate(0deg);
+}
+
+#content-container .card-collapse[aria-expanded="true"]::after {
+  transform: scale(1.5,1.5) rotate(90deg);
+}
+
+#content-container .card-collapse i{
+  font-size: .8rem;
+}
+
+#content-container .card-label{
+  width: 12vw;
+}
+
+@media (max-width:1024px){
+  #content-container .card-label{
+    width: 50%;
+  }
+}

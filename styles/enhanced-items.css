@@ -1,0 +1,22 @@
+#bottom-menu{
+    position: fixed;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 4px;
+    bottom: 0;
+    width: 86vw;
+    margin: 1rem;
+    z-index: 17000;
+    color: white;
+}
+
+#bottom-menu .bottom-menu-links.nav-link{
+    color: white;
+    padding: .4rem;
+}
+
+#bottom-menu .bottom-menu-links.nav-link:hover{
+    color: white !important;
+    background-color: rgba(255,255,255,0.3);
+}
