@@ -12,6 +12,7 @@ function resizeContent() {
   } else {
     $('#left-nav-panel').addClass("show");
   }
+  window.innerWidth >1280 ? grid.setOptions({autosizeColsMode:Slick.GridAutosizeColsMode.FitColsToViewport}) : grid.setOptions({autosizeColsMode:Slick.GridAutosizeColsMode.IgnoreViewport});
 };
 
 function resizeGrid() {

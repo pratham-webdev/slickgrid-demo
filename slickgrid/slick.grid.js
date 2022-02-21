@@ -3577,7 +3577,7 @@ if (typeof Slick === "undefined") {
         footerRowH = ( options.showFooterRow ) ? options.footerRowHeight + getVBoxDelta($footerRowScroller) : 0;
       }
       if (options.autoHeight) {
-        var fullHeight = $paneHeaderL.outerHeight()+12; //changed here
+        var fullHeight = $paneHeaderL.outerHeight();
         fullHeight += ( options.showHeaderRow ) ? options.headerRowHeight + getVBoxDelta($headerRowScroller) : 0;
         fullHeight += ( options.showFooterRow ) ? options.footerRowHeight + getVBoxDelta($footerRowScroller) : 0;
         fullHeight += (getCanvasWidth() > viewportW) ? scrollbarDimensions.height : 0;

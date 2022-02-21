@@ -145,7 +145,9 @@ var options = {
   showHeaderRow: true,
   enableAutoSizeColumns: true,
   autosizeColsMode: testFunc(),
-  autoHeight: true
+  autoHeight: true,
+  alwaysAllowHorizontalScroll: true,
+  viewportClass:"#myGrid"
 };
 
 function testFunc(){
