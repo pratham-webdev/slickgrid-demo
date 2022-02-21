@@ -26,7 +26,7 @@ const gridButtonItems = [{
     {
         id: 6,
         name: "Collapse All",
-        click: "detailView.collapseAll()"
+        click: `collapseAllNow()`
     },
     
     {
@@ -35,6 +35,11 @@ const gridButtonItems = [{
         click: ""
     },
 ]
+
+function collapseAllNow(){
+    detailView.collapseAll();
+    dataView.setPagingOptions({pageSize:50});
+}
 
 const gridButtonsBar = `<div id="grid-buttons-bar" class="d-flex align-items-center justify-content-between pb-2">
 ${createGridButtonGroup()}
