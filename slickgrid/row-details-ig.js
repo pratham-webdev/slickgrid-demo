@@ -20,6 +20,8 @@ var columns = [{
     field: "num",
     behavior: "select",
     cssClass: "cell-selection",
+    sortable: true,
+
     maxWidth: 40,
     resizable: false,
     selectable: false
@@ -56,7 +58,7 @@ var columns = [{
     id: "TK",
     name: "Timekeeper",
     field: "timekeeper",
-    maxWidth: 80,
+    // maxWidth: 80,
     cssClass: "cell-title",
     sortable: true,
     formatter: Slick.Formatters.Timekeeper
@@ -131,7 +133,7 @@ var columns = [{
 // columns.push({id: "extra" + i, name: "Extra " + i, field: "extra" + i, minWidth: 60});
 
 // }
-
+let windowWidth = window.innerWidth;
 
 var options = {
   editable: false,
@@ -142,9 +144,13 @@ var options = {
   headerRowHeight: 30,
   showHeaderRow: true,
   enableAutoSizeColumns: true,
-  autosizeColsMode: Slick.GridAutosizeColsMode.FitColsToViewport,
+  autosizeColsMode: testFunc(),
   autoHeight: true
 };
+
+function testFunc(){
+  return windowWidth > 1280 ? Slick.GridAutosizeColsMode.FitColsToViewport : Slick.GridAutosizeColsMode.IgnoreViewport
+}
 
 function DataItem(i) {
   let temp = Math.ceil(Math.random() * 100) + 200;
