@@ -402,8 +402,7 @@ $(function () {
     preTemplate: loadingTemplate,
     postTemplate: loadView,
     process: simulateServerCall,
-    useRowClick: true,
-
+    useRowClick: false,
     // how many grid rows do we want to use for the detail panel
     // also note that the detail view adds an extra 1 row for padding purposes
     // example, if you choosed 6 panelRows, the display will in fact use 5 rows
@@ -434,21 +433,26 @@ $(function () {
 
 
   //only allowing single cell click instead of complete row
-  detailView.setOptions({
-    loadOnce: detailView.loadOnce,
-    useRowClick: false
-  })
+  // detailView.setOptions({
+  //   loadOnce: detailView.loadOnce,
+  //   useRowClick: false
+  // })
 
   detailView.onBeforeRowDetailToggle.subscribe(function (e, args) {
-    console.log('before toggling row detail', args.item);
+    // console.log('before toggling row detail', args.item);
+    
   });
 
   detailView.onAfterRowDetailToggle.subscribe(function (e, args) {
-    console.log('after toggling row detail', args.item);
-    if (args.item._collapsed) {
-      destroyAssigneeOnClick(args.item.id);
-    } else {
+    // console.log('after toggling row detail', args.item);
 
+    if (args.item._collapsed) {
+      // destroyAssigneeOnClick(args.item.id);
+      let closeRow = dataView.getPagingInfo().pageSize;
+    dataView.setPagingOptions({pageSize : (closeRow-9)});
+    } else {
+      let openRow = dataView.getPagingInfo().pageSize;
+    dataView.setPagingOptions({pageSize : (openRow+9)});
     }
   });
 
