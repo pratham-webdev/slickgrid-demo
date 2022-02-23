@@ -15,8 +15,8 @@ const navItems = [
         href:"/"
     },{
         id:4,
-        name:'Contacts',
-        href:"#"
+        name:'Finance-Scroll',
+        href:"cont-scroll.html"
     },{
         id:5,
         name:'Documents',
