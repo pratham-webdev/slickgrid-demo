@@ -3,6 +3,9 @@ var detailView; //row detail variable
 var checkboxSelector; //checkbox variable
 var grid;
 var data = [];
+var dataHolder = []; // cloning untouched dataset for opening detail view
+var adjustmentsOn = false; //turn on/off adjustments
+var checkbox = false; //for checking checbox added to grid
 var columnFilters = {};
 var sortcol = "title";
 var sortdir = 1;
@@ -17,7 +20,7 @@ var Dates = ["01/01/2009", "01/02/2009", "01/03/2009", "01/04/2009", "01/05/2009
 var columns = [{
     id: "sel",
     name: "Item",
-    field: "num",
+    field: "id",
     behavior: "select",
     cssClass: "cell-selection",
     sortable: true,
@@ -145,19 +148,18 @@ var options = {
   showHeaderRow: true,
   enableAutoSizeColumns: true,
   autosizeColsMode: testFunc(),
-//   autoHeight: true,
+  //   autoHeight: true,
   alwaysAllowHorizontalScroll: true,
-  viewportClass:"#myGrid"
+  viewportClass: "#myGrid"
 };
 
-function testFunc(){
+function testFunc() {
   return windowWidth > 1280 ? Slick.GridAutosizeColsMode.FitColsToViewport : Slick.GridAutosizeColsMode.IgnoreViewport
 }
 
 function DataItem(i) {
   let temp = Math.ceil(Math.random() * 100) + 200;
   this.id = i;
-  this.num = i;
   this.flag = 1;
   // this.percentComplete = Math.round(Math.random() * 100);
   // this.effortDriven = (i % 5 == 0);
@@ -234,39 +236,47 @@ function loadingTemplate() {
 //row detail template
 function loadView(itemDetail) {
   return `<div id="row-detail-view">
-  <div class="mt-2 mb-3">
+  <div class="mb-2">
       <span class="fw-bold">Description:</span><span class="ms-1">This is going to be a very long description about the expense of the invoice line item that is placed here to explain the details of this invoice line item to simulate a long description</span>
   </div>
-  <div class="mb-3">
-      <span class="fw-bold">Adjustment:</span><span class="ms-1 text-primary"><i class="bi bi-markdown-fill fs-5 text-primary ms-1"></i></span><span class="ms-2">Manual</span>
-  </div>
-  <div class="mb-3">
-      <div class="mb-2">
-          <span class="fw-bold">Quantity</span>
-      </div>
-      <div class="d-flex align-items-center justify-content-between">
-          <div class="w-50">
-              <div class="mb-2">
-                  <span>2/1/2022 - Quantity adjusted to 2.00 hours - <a href="#">John Doe</a></span>
-              </div>
-              <div class="mb-2">
-                  <span>Reason for adjustment:</span><span class="text-primary ms-1">Excessive time on task</span>
-              </div>
-          </div>
-          <div class="w-50">
-              <div class="mb-2">
-                  <span>Comments to Vendor:</span><span class="text-primary ms-1">New Amount</span>
-              </div>
-              <div class="mb-2">
-                  <span>Reason for adjustment:</span><span class="text-primary ms-1">New Amount</span>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="mb-3">
-      <button class="btn btn-sm btn-primary">Revert</button>
-  </div>
+  ${adjustmentsLoad()}
 </div>`
+}
+
+function adjustmentsLoad() {
+  if (adjustmentsOn) {
+    return `<div class="mb-3">
+    <span class="fw-bold">Adjustment:</span><span class="ms-1 text-primary"><i class="bi bi-markdown-fill fs-5 text-primary ms-1"></i></span><span class="ms-2">Manual</span>
+</div>
+<div class="mb-3">
+    <div class="mb-2">
+        <span class="fw-bold">Quantity</span>
+    </div>
+    <div class="d-flex align-items-center justify-content-between">
+        <div class="w-50">
+            <div class="mb-2">
+                <span>2/1/2022 - Quantity adjusted to 2.00 hours - <a href="#">John Doe</a></span>
+            </div>
+            <div class="mb-2">
+                <span>Reason for adjustment:</span><span class="text-primary ms-1">Excessive time on task</span>
+            </div>
+        </div>
+        <div class="w-50">
+            <div class="mb-2">
+                <span>Comments to Vendor:</span><span class="text-primary ms-1">New Amount</span>
+            </div>
+            <div class="mb-2">
+                <span>Reason for adjustment:</span><span class="text-primary ms-1">New Amount</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb-3">
+    <button class="btn btn-sm btn-primary">Revert</button>
+</div>`
+  } else {
+    return '';
+  }
 }
 
 function filter(item) {
@@ -294,18 +304,20 @@ function filter(item) {
 
 // fill the template with a delay to simulate a server call
 function simulateServerCall(item) {
-  setTimeout(function () {
-    // let's add some property to our item for a better simulation
-    var itemDetail = item;
-    itemDetail.assignee = fakeNames[randomNumber(0, 9)];
-    itemDetail.reporter = fakeNames[randomNumber(0, 9)];
+  var itemDetail = item;
+  notifyTemplate(itemDetail)
 
-    // if(itemDetail.num % 5 == 0) {
-    //   notifyNonTemplatedView(itemDetail)
-    // } else {
-    notifyTemplate(itemDetail)
+  // setTimeout(function () {
+  //   // let's add some property to our item for a better simulation
+  //   itemDetail.assignee = fakeNames[randomNumber(0, 9)];
+  //   itemDetail.reporter = fakeNames[randomNumber(0, 9)];
 
-  }, 10);
+  //   // if(itemDetail.num % 5 == 0) {
+  //   //   notifyNonTemplatedView(itemDetail)
+  //   // } else {
+   
+
+  // }, 10);
 }
 
 // notify the onAsyncResponse with the "args.item" (required property)
@@ -389,11 +401,19 @@ function comparer(a, b) {
   return (x == y ? 0 : (x > y ? 1 : -1));
 }
 
-$(function () {
-  // prepare the data
-  for (var i = 0; i < 500; i++) {
+function createData() {
+  for (var i = 0; i < 50; i++) {
     data[i] = new DataItem(i);
+    dataHolder[i] = data[i];
   }
+  return data, dataHolder;
+}
+
+function buildGrid() {
+  // prepare the data
+  data = [];
+  dataHolder = [];
+  createData();
   dataView = new Slick.Data.DataView();
 
   // create the row detail plugin
@@ -406,7 +426,7 @@ $(function () {
     // how many grid rows do we want to use for the detail panel
     // also note that the detail view adds an extra 1 row for padding purposes
     // example, if you choosed 6 panelRows, the display will in fact use 5 rows
-    panelRows: 8
+    panelRows: adjustmentsOn ? 8 : 1
   });
 
   var checkboxSelector = new Slick.CheckboxSelectColumn({
@@ -414,8 +434,10 @@ $(function () {
   });
 
   // push the plugin as the first column
-  columns.unshift(detailView.getColumnDefinition());
-  columns.unshift(checkboxSelector.getColumnDefinition());
+  if(checkbox == false){
+    columns.unshift(detailView.getColumnDefinition());
+    columns.unshift(checkboxSelector.getColumnDefinition());
+  }
 
   grid = new Slick.Grid("#myGrid", dataView, columns, options);
 
@@ -440,7 +462,7 @@ $(function () {
 
   detailView.onBeforeRowDetailToggle.subscribe(function (e, args) {
     // console.log('before toggling row detail', args.item);
-    
+
   });
 
   detailView.onAfterRowDetailToggle.subscribe(function (e, args) {
@@ -448,11 +470,11 @@ $(function () {
 
     if (args.item._collapsed) {
       // destroyAssigneeOnClick(args.item.id);
-    //   let closeRow = dataView.getPagingInfo().pageSize;
-    // dataView.setPagingOptions({pageSize : (closeRow-9)});
+      //   let closeRow = dataView.getPagingInfo().pageSize;
+      // dataView.setPagingOptions({pageSize : (closeRow-9)});
     } else {
-    //   let openRow = dataView.getPagingInfo().pageSize;
-    // dataView.setPagingOptions({pageSize : (openRow+9)});
+      //   let openRow = dataView.getPagingInfo().pageSize;
+      // dataView.setPagingOptions({pageSize : (openRow+9)});
     }
   });
 
@@ -479,12 +501,12 @@ $(function () {
     }
   });
 
-  detailView.onAsyncEndUpdate.subscribe(function (e, args) {
-    console.log('finished updating the post async template', args);
-    hookAssigneeOnClick(args.item.id);
-  });
+  // detailView.onAsyncEndUpdate.subscribe(function (e, args) {
+  //   console.log('finished updating the post async template', args);
+  //   hookAssigneeOnClick(args.item.id);
+  // });
 
-//   var pager = new Slick.Controls.Pager(dataView, grid, $("#pager"));
+  //   var pager = new Slick.Controls.Pager(dataView, grid, $("#pager"));
 
   // wire up model events to drive the grid
   dataView.onRowCountChanged.subscribe(function (e, args) {
@@ -570,8 +592,17 @@ $(function () {
   dataView.setItems(data);
   dataView.setFilter(filter);
   dataView.endUpdate();
-  grid.autosizeColumns();
-//   dataView.setPagingOptions({
-//     pageSize: 50
-//   });
-});
+  //   dataView.setPagingOptions({
+  //     pageSize: 50
+  //   });
+  dataHolder.forEach(el => {
+    detailView.expandDetailView(el);
+  });
+  setTimeout(()=>{
+    grid.resizeCanvas()
+  grid.autosizeColumns()
+  }, 500);
+
+}
+
+buildGrid();

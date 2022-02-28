@@ -22,8 +22,23 @@ function resizeGrid() {
   grid.autosizeColumns();
 }
 
+function turnAdjusments(){
+  adjustmentsOn ? adjustmentsOn = false : adjustmentsOn = true;
+  checkbox = true;
+  buildGrid();
+}
+
 //resize event
 
 window.onresize = resizeContent;
+
+$('#main-container').on('scroll',()=>{
+  if ($('#main-container').scrollTop() >= 800) {
+    $('#plus-minus').addClass('show d-flex flex-column');
+  }
+  else{
+    $('#plus-minus').removeClass('show d-flex flex-column');
+  }
+});
 
 resizeContent();

@@ -34,6 +34,11 @@ const gridButtonItems = [{
         name: "Clear All Filters",
         click: ""
     },
+    {
+        id: 8,
+        name: "Adj On/Off",
+        click: `turnAdjusments()`
+    },
 ]
 
 function collapseAllNow(){
