@@ -181,8 +181,8 @@ function DataItem(i) {
   let temp = Math.ceil(Math.random() * 100) + 200;
   this.id = i;
   this.flag = 1;
-  this.warning = (i % 5 == 0);
-  this.ml = (i % 10 == 0);
+  this.warning = (i % 2 == 0);
+  this.ml = (i % 4 == 0);
   // this.percentComplete = Math.round(Math.random() * 100);
   // this.effortDriven = (i % 5 == 0);
   this.timekeeper = 1;
