@@ -129,6 +129,26 @@ var columns = [{
     sortable: true,
     formatter: Slick.Formatters.Amount
   },
+  {
+    id: "warn",
+    name: "Warning",
+    field: "warning",
+    minWidth: 40,
+    width: 40,
+    cssClass: "cell-title",
+    sortable: true,
+    formatter: Slick.Formatters.Warning
+  },
+  {
+    id: "ml",
+    name: "ML Insights",
+    field: "ml",
+    minWidth: 40,
+    width: 40,
+    cssClass: "cell-title",
+    sortable: true,
+    formatter: Slick.Formatters.ML
+  },
 ];
 
 // for(var i = 0; i < 5; i++){
@@ -172,6 +192,9 @@ function DataItem(i) {
   this.disc = "$ 0.00";
   this.adj = "$ -100.00";
   this.amt = `$ ${(temp * this.units) -100}`;
+  this.warning = (i % 5 == 0);
+  this.ml = (i % 10 == 0);
+
   // this.finish = "01/05/2009";
   // this.title = "Task " + i;
   // this.duration = "5 days";

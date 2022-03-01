@@ -65,10 +65,10 @@
     return value ? `<a class="link-primary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">${value}</a>` : "";
   }
   function WarningFormatter(row, cell, value, columnDef, dataContext) {
-    return value ? `<i class="bi bi-exclamation-octagon-fill"></i>` : "";
+    return value ? `<a class="link-danger" href="#" data-bs-toggle="modal" data-bs-target="#warningModal" data-bs-toggle="tooltip" data-bs-placement="top" title="This is flagged as a block billing problem"><i class="bi bi-exclamation-octagon-fill"></i></a>` : "";
   }
   function MLFormatter(row, cell, value, columnDef, dataContext) {
-    return value ? `<i class="bi bi-exclamation-triangle-fill"></i>` : "";
+    return value ? `<a class="link-warning" href="#" data-bs-toggle="modal" data-bs-target="#MLModal"><i class="bi bi-exclamation-triangle-fill"></i></a>` : "";
   }
 
   // exports
