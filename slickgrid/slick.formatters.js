@@ -46,15 +46,15 @@
   }
 
   function CheckmarkFormatter(row, cell, value, columnDef, dataContext) {
-    return value ? "<img src='../styles/images/tick.png'>" : "";
+    return value ? `<img src='../styles/images/tick.png'>` : "";
   }
 
   function FlagFormatter(row, cell, value, columnDef, dataContext) {
-    return value ? "<img src='../styles/flag.svg'>" : "";
+    return value ? '<i class="bi bi-eye-slash"></i>' : "";
   }
 
   function ReviewedFormatter(row, cell, value, columnDef, dataContext) {
-    return value ? "<img src='../styles/eye-slash.svg'>" : "";
+    return value ? `<i class="bi bi-flag"></i>` : "";
   }
 
   function TimekeeperFormatter(row, cell, value, columnDef, dataContext) {
@@ -63,6 +63,12 @@
 
   function AmountFormatter(row, cell, value, columnDef, dataContext) {
     return value ? `<a class="link-primary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">${value}</a>` : "";
+  }
+  function WarningFormatter(row, cell, value, columnDef, dataContext) {
+    return value ? `<i class="bi bi-exclamation-octagon-fill"></i>` : "";
+  }
+  function MLFormatter(row, cell, value, columnDef, dataContext) {
+    return value ? `<i class="bi bi-exclamation-triangle-fill"></i>` : "";
   }
 
   // exports
@@ -77,7 +83,9 @@
         "Flag": FlagFormatter,
         "Reviewed": ReviewedFormatter,
         "Timekeeper": TimekeeperFormatter,
-        "Amount":AmountFormatter
+        "Amount":AmountFormatter,
+        "Warning":WarningFormatter,
+        "ML":MLFormatter
       }
     }
   });
