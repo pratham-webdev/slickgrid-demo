@@ -39,6 +39,11 @@ const gridButtonItems = [{
         name: "Adj On/Off",
         click: `turnAdjusments()`
     },
+    {
+        id: 9,
+        name: "Fullscreen",
+        click: `fullScreenView()`
+    },
 ]
 
 function collapseAllNow() {
