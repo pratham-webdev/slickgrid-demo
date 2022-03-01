@@ -50,11 +50,11 @@
   }
 
   function FlagFormatter(row, cell, value, columnDef, dataContext) {
-    return value ? "<img src='../styles/images/flag.svg'>" : "";
+    return value ? "<img src='../styles/flag.svg'>" : "";
   }
 
   function ReviewedFormatter(row, cell, value, columnDef, dataContext) {
-    return value ? "<img src='../styles/images/eye-slash.svg'>" : "";
+    return value ? "<img src='../styles/eye-slash.svg'>" : "";
   }
 
   function TimekeeperFormatter(row, cell, value, columnDef, dataContext) {
