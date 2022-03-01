@@ -70,6 +70,9 @@
   function MLFormatter(row, cell, value, columnDef, dataContext) {
     return value ? `<a class="link-warning" href="#" data-bs-toggle="modal" data-bs-target="#MLModal"><i class="bi bi-exclamation-triangle-fill"></i></a>` : "";
   }
+  function AdjustmentFormatter(row, cell, value, columnDef, dataContext) {
+    return value ? `<a class="link-primary" href="#" data-bs-toggle="modal" data-bs-target="#adjustmentModal"><i class="bi bi-markdown-fill me-2"></i>${value}</a>` : "";
+  }
 
   // exports
   $.extend(true, window, {
@@ -85,7 +88,8 @@
         "Timekeeper": TimekeeperFormatter,
         "Amount":AmountFormatter,
         "Warning":WarningFormatter,
-        "ML":MLFormatter
+        "ML":MLFormatter,
+        "Adjustments":AdjustmentFormatter
       }
     }
   });

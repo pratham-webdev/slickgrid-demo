@@ -117,7 +117,9 @@ var columns = [{
     minWidth: 40,
     width: 40,
     cssClass: "cell-title",
-    sortable: true
+    sortable: true,
+    formatter: Slick.Formatters.Adjustments
+
   },
   {
     id: "amt",

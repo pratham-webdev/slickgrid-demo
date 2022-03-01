@@ -14,7 +14,7 @@ const modalBodyTemplate = `<div class="modal fade" id="exampleModal" tabindex="-
     </div>
   </div>
 </div>
-</div>`
+</div>`;
 
 const warningModalTemplate = `<div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered">
@@ -28,7 +28,7 @@ const warningModalTemplate = `<div class="modal fade" id="warningModal" tabindex
     </div>
   </div>
 </div>
-</div>`
+</div>`;
 
 const MLModalTemplate = `<div class="modal fade" id="MLModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered">
@@ -43,6 +43,48 @@ const MLModalTemplate = `<div class="modal fade" id="MLModal" tabindex="-1" aria
     </div>
   </div>
 </div>
+</div>`;
+
+const AdjustmentModalTemplate = `<div class="modal fade" id="adjustmentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Adjustments</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+    <div class="mb-3">
+    <span class="fw-bold">Adjustment:</span><span class="ms-1 text-primary"><i class="bi bi-markdown-fill fs-5 text-primary ms-1"></i></span><span class="ms-2">Manual</span>
+</div>
+<div class="mb-3">
+    <div class="mb-2">
+        <span class="fw-bold">Quantity</span>
+    </div>
+    <div class="d-flex align-items-center justify-content-between">
+        <div class="w-50">
+            <div class="mb-2">
+                <span>2/1/2022 - Quantity adjusted to 2.00 hours - <a href="#">John Doe</a></span>
+            </div>
+            <div class="mb-2">
+                <span>Reason for adjustment:</span><span class="text-primary ms-1">Excessive time on task</span>
+            </div>
+        </div>
+        <div class="w-50">
+            <div class="mb-2">
+                <span>Comments to Vendor:</span><span class="text-primary ms-1">New Amount</span>
+            </div>
+            <div class="mb-2">
+                <span>Reason for adjustment:</span><span class="text-primary ms-1">New Amount</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb-3">
+    <button class="btn btn-sm btn-primary">Revert</button>
+</div>
+    </div>
+  </div>
+</div>
 </div>`
 
-$('body').append(modalBodyTemplate, warningModalTemplate, MLModalTemplate);
+$('body').append(modalBodyTemplate, warningModalTemplate, MLModalTemplate, AdjustmentModalTemplate);
