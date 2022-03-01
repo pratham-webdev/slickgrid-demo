@@ -42,13 +42,13 @@ $('#main-container').on('scroll',()=>{
 });
 
 function fullScreenView(){
- if($('#navbar-container, #left-nav-panel').hasClass('hide')){
-  $('#navbar-container, #left-nav-panel').toggle();
+ if($('#navbar-container').hasClass('hide')){
+  $('#navbar-container, #left-nav-panel').show();
   $('#main-container, #left-nav-panel').css('height', 'calc(100vh - 6.625rem)');
   resizeGrid();
  }
  else{
-  $('#navbar-container, #left-nav-panel').toggle();
+  $('#navbar-container, #left-nav-panel').hide();
   $('#main-container, #left-nav-panel').css('height', '100vh');
   resizeGrid();
  }
