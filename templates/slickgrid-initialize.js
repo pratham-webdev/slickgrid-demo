@@ -39,7 +39,7 @@ const gridButtonItems = [{
 {
     id: 8,
     name: "Show Adjustments",
-    click: `turnAdjusments()`
+    click: ``
 },
 {
     id: 9,
