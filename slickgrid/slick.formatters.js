@@ -50,11 +50,11 @@
   }
 
   function FlagFormatter(row, cell, value, columnDef, dataContext) {
-    return value ? '<i class="bi bi-eye-slash"></i>' : "";
+    return value ? '<i class="bi bi-flag"></i>' : "";
   }
 
   function ReviewedFormatter(row, cell, value, columnDef, dataContext) {
-    return value ? `<i class="bi bi-flag"></i>` : "";
+    return value ? `<i class="bi bi-eye-slash"></i>` : "";
   }
 
   function TimekeeperFormatter(row, cell, value, columnDef, dataContext) {
