@@ -24,7 +24,7 @@ function resizeGrid() {
 }
 
 function turnAdjusments(){
-  adjustmentsOn ? adjustmentsOn = false : adjustmentsOn = true;
+  adjustmentsOn ? (adjustmentsOn = false, $('#slick-button-8').text('Hide Adjustments')) : (adjustmentsOn = true, $('#slick-button-8').text('Show Adjustments'));
   checkbox = true;
   buildGrid();
 }
@@ -46,11 +46,13 @@ function fullScreenView(){
  if($('#left-panel-nav').hasClass('show') == false && $('#navbar-container').hasClass('show') == false){
   $('#navbar-container, #left-nav-panel').addClass('show');
   $('#main-container, #left-nav-panel').css('height', 'calc(100vh - 6.625rem)');
+  $('#slick-button-9').text('Fullscreen');
   resizeGrid();
  }
  else{
   $('#navbar-container, #left-nav-panel').removeClass('show');
   $('#main-container, #left-nav-panel').css('height', '100vh');
+  $('#slick-button-9').text('Windowed');
   resizeGrid();
  }
 }

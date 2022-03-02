@@ -1,3 +1,4 @@
+let isCollapsed = false;
 const gridButtonItems = [{
         id: 1,
         name: "Mark Reviewed",
@@ -36,7 +37,7 @@ const gridButtonItems = [{
     },
     {
         id: 8,
-        name: "Adj On/Off",
+        name: "Show Adjustments",
         click: `turnAdjusments()`
     },
     {
@@ -47,7 +48,9 @@ const gridButtonItems = [{
 ]
 
 function collapseAllNow() {
-    detailView.collapseAll();
+    isCollapsed ? 
+    (buildGrid(), $('#slick-button-6').text('Collapse All'), isCollapsed = false) :
+    (detailView.collapseAll(), $('#slick-button-6').text('Expand All'), isCollapsed=true, checkbox=true);
     // dataView.setPagingOptions({pageSize:50});
 }
 
@@ -58,9 +61,9 @@ ${createGridButtonGroup()}
 
 function createGridButtonItems(el) {
     if (window.innerWidth > 1100) {
-        return `<button class="btn btn-sm ${el.id === 5 ? "btn-outline-primary" : "btn-outline-new"} me-2" onClick=${el.click}>${el.name}</button>`;
+        return `<button id="slick-button-${el.id}" class="btn btn-sm ${el.id === 5 ? "btn-outline-primary" : "btn-outline-new"} me-2" onClick=${el.click}>${el.name}</button>`;
     } else {
-        return `<a class="nav-link small mb-2" href="#" onClick=${el.click}>
+        return `<a id="slick-button-${el.id}" class="nav-link small mb-2" href="#" onClick=${el.click}>
     ${el.name}
 </a>`
     }

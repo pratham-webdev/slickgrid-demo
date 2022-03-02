@@ -627,7 +627,6 @@ function buildGrid() {
   setTimeout(()=>{
     grid.resizeCanvas();
   grid.autosizeColumns();
-  console.log("fired");
   }, 1000);
 }
 
