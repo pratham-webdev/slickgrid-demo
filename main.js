@@ -24,7 +24,7 @@ function resizeGrid() {
 }
 
 function turnAdjusments(){
-  adjustmentsOn ? (adjustmentsOn = false, $('#slick-button-8').text('Hide Adjustments')) : (adjustmentsOn = true, $('#slick-button-8').text('Show Adjustments'));
+  adjustmentsOn ? (adjustmentsOn = false, $('#slick-button-8').text('Show Adjustments')) : (adjustmentsOn = true, $('#slick-button-8').text('Hide Adjustments'));
   checkbox = true;
   buildGrid();
 }

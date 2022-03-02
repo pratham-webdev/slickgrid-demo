@@ -11,41 +11,47 @@ const navItems = [
         href:"#"
     },{
         id:3,
-        name:'Finance',
+        name:'IR Pagination',
         href:"/"
     },{
         id:4,
-        name:'Finance-Scroll',
+        name:'IR Scroll',
         href:"cont-scroll.html"
-    },{
+    },
+    {
         id:5,
+        name:'IR Peek-In',
+        href:"peek.html"
+    },
+    {
+        id:6,
         name:'Documents',
         href:"#"
     },{
-        id:6,
+        id:7,
         name:'Reports',
         href:"#"
     },{
-        id:7,
+        id:8,
         name:'CSM',
         href:"#"
     },{
-        id:8,
+        id:9,
         name:'TAP',
         href:"#"
     },
     {
-        id:9,
+        id:10,
         name:'Admin',
         href:"#"
     },
     {
-        id:10,
+        id:11,
         name:'Training',
         href:"#"
     },
     {
-        id:11,
+        id:12,
         name:'Enhanced',
         href:"enhanced.html"
     }

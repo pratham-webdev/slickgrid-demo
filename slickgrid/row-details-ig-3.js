@@ -6,6 +6,7 @@ var data = [];
 var dataHolder = []; // cloning untouched dataset for opening detail view
 var adjustmentsOn = false; //turn on/off adjustments
 var checkbox = false; //for checking checbox added to grid
+var description = `This is going to be a very long description about the expense of the invoice line item that is placed here to explain the details of this invoice line item to simulate a long description`;
 var columnFilters = {};
 var sortcol = "title";
 var sortdir = 1;
@@ -96,7 +97,16 @@ var columns = [{
     id: "category",
     name: "Category",
     field: "category",
-    minWidth: 120,
+    minWidth: 100,
+    width:120,
+    cssClass: "cell-title",
+    sortable: true
+  },
+  {
+    id: "desc",
+    name: "Description",
+    field: "desc",
+    maxWidth: 400,
     cssClass: "cell-title",
     sortable: true
   },
@@ -104,17 +114,15 @@ var columns = [{
     id: "rate",
     name: "Rate",
     field: "rate",
-    minWidth: 40,
-    width: 40,
+    minWidth: 60,
     cssClass: "cell-title",
     sortable: true
   },
   {
     id: "units",
-    name: "Quantity",
+    name: "Qty",
     field: "units",
-    minWidth: 40,
-    width: 40,
+    maxWidth:40,
     cssClass: "cell-title",
     sortable: true
   },
@@ -123,7 +131,6 @@ var columns = [{
     name: "Discount",
     field: "disc",
     minWidth: 40,
-    width: 40,
     cssClass: "cell-title",
     sortable: true
   },
@@ -131,8 +138,7 @@ var columns = [{
     id: "adj",
     name: "Adjustment",
     field: "adj",
-    minWidth: 40,
-    width: 40,
+    minWidth: 60,
     cssClass: "cell-title",
     sortable: true,
     formatter: Slick.Formatters.Adjustments
@@ -143,7 +149,6 @@ var columns = [{
     name: "Amount",
     field: "amt",
     minWidth: 40,
-    width: 40,
     cssClass: "cell-title",
     sortable: true,
     formatter: Slick.Formatters.Amount
@@ -166,10 +171,11 @@ var options = {
   headerRowHeight: 30,
   showHeaderRow: true,
   enableAutoSizeColumns: true,
-  autosizeColsMode: testFunc(),
+  autosizeColsMode: Slick.GridAutosizeColsMode.FitColsToViewport,
   //   autoHeight: true,
   alwaysAllowHorizontalScroll: true,
-  viewportClass: "#myGrid"
+  viewportClass: "#myGrid",
+  rowHeight:64,
 };
 
 function testFunc() {
@@ -193,6 +199,7 @@ function DataItem(i) {
   this.disc = "$ 0.00";
   this.adj = "$ -100.00";
   this.amt = `$ ${(temp * this.units) -100}`;
+  this.desc= description;
   // this.finish = "01/05/2009";
   // this.title = "Task " + i;
   // this.duration = "5 days";
@@ -265,7 +272,6 @@ function loadView(itemDetail) {
 }
 
 function adjustmentsLoad() {
-  if (adjustmentsOn) {
     return `<div class="mb-3">
     <span class="fw-bold">Adjustment:</span><span class="ms-1 text-primary"><i class="bi bi-markdown-fill fs-5 text-primary ms-1"></i></span><span class="ms-2">Manual</span>
 </div>
@@ -295,9 +301,6 @@ function adjustmentsLoad() {
 <div class="mb-3">
     <button class="btn btn-sm btn-primary">Revert</button>
 </div>`
-  } else {
-    return '';
-  }
 }
 
 function filter(item) {
@@ -447,7 +450,7 @@ function buildGrid() {
     // how many grid rows do we want to use for the detail panel
     // also note that the detail view adds an extra 1 row for padding purposes
     // example, if you choosed 6 panelRows, the display will in fact use 5 rows
-    panelRows: adjustmentsOn ? 8 : 1
+    panelRows: 8
   });
 
   var checkboxSelector = new Slick.CheckboxSelectColumn({
@@ -613,12 +616,6 @@ function buildGrid() {
   dataView.setItems(data);
   dataView.setFilter(filter);
   dataView.endUpdate();
-  //   dataView.setPagingOptions({
-  //     pageSize: 50
-  //   });
-  dataHolder.forEach(el => {
-    detailView.expandDetailView(el);
-  });
   setTimeout(()=>{
     grid.resizeCanvas()
   grid.autosizeColumns()
