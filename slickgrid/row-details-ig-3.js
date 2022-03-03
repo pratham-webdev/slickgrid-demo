@@ -6,7 +6,15 @@ var data = [];
 var dataHolder = []; // cloning untouched dataset for opening detail view
 var adjustmentsOn = false; //turn on/off adjustments
 var checkbox = false; //for checking checbox added to grid
-var description = `This is going to be a very long description about the expense of the invoice line item that is placed here to explain the details of this invoice line item to simulate a long description`;
+var description = [`An accretion disk is a structure (often a circumstellar disk) formed by diffuse material in orbital motion around a massive central body. The central body is typically a star.`, 
+
+`As matter enters the accretion disc, it follows a trajectory called a tendex line, which describes an inward spiral.`, 
+
+`The study of oscillation modes in accretion disks is referred to as diskoseismology.`,
+
+`This is because particles rub and bounce against each other in a turbulent flow, causing frictional heating which radiates energy away, reducing the particles' angular momentum, allowing the particle to drift inwards, driving the inward spiral`,
+
+`As a particle orbits closer and closer, its velocity increases, as velocity increases frictional heating increases as more and more of the particle's potential energy (relative to the black hole) is radiated away; the accretion disk of a black hole is hot enough to emit X-rays just outside the event horizon.`];
 var columnFilters = {};
 var sortcol = "title";
 var sortdir = 1;
@@ -199,7 +207,7 @@ function DataItem(i) {
   this.disc = "$ 0.00";
   this.adj = "$ -100.00";
   this.amt = `$ ${(temp * this.units) -100}`;
-  this.desc= description;
+  this.desc= description[(Math.round(Math.random() * 4))];
   // this.finish = "01/05/2009";
   // this.title = "Task " + i;
   // this.duration = "5 days";
@@ -265,7 +273,7 @@ function loadingTemplate() {
 function loadView(itemDetail) {
   return `<div id="row-detail-view">
   <div class="mb-2">
-      <span class="fw-bold">Description:</span><span class="ms-1">This is going to be a very long description about the expense of the invoice line item that is placed here to explain the details of this invoice line item to simulate a long description</span>
+      <span class="fw-bold">Description:</span><span class="ms-1">${itemDetail.desc}</span>
   </div>
   ${adjustmentsLoad()}
 </div>`
