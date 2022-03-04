@@ -12,7 +12,7 @@ const navItems = [
     },{
         id:3,
         name:'IR Pagination',
-        href:"/"
+        href:"index.html"
     },{
         id:4,
         name:'IR Scroll',
@@ -73,7 +73,13 @@ const navbarTemplate = `<nav class="navbar navbar-expand-lg navbar-light bg-whit
 </nav>`;
 
 function activeLocation(id,href){
-    let path = window.location.pathname;
+    let path;
+    if(window.location.pathname.includes('/slickgrid-demo')){
+        path = window.location.pathname.replace('/slickgrid-demo','');
+    }
+    else{
+        path = window.location.pathname;
+    }
     return "/"+href === path || (id===3 && (path==="/" || path==="/index.html")) ? 'active' : "";
 }
 
