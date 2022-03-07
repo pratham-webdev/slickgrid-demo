@@ -7,13 +7,15 @@ const navItems = [
     },
     {
         id:2,
-        name:'Legal',
-        href:"#"
-    },{
+        name:'IR Fixes',
+        href:"fixes.html"
+    },
+    {
         id:3,
         name:'IR Pagination',
         href:"index.html"
-    },{
+    },
+    {
         id:4,
         name:'IR Scroll',
         href:"cont-scroll.html"
@@ -27,29 +29,32 @@ const navItems = [
         id:6,
         name:'Documents',
         href:"#"
-    },{
+    },
+    {
         id:7,
         name:'Reports',
         href:"#"
-    },{
+    },
+    {
         id:8,
         name:'CSM',
         href:"#"
-    },{
-        id:9,
-        name:'TAP',
-        href:"#"
     },
-    {
-        id:10,
-        name:'Admin',
-        href:"#"
-    },
-    {
-        id:11,
-        name:'Training',
-        href:"#"
-    },
+    // {
+    //     id:9,
+    //     name:'TAP',
+    //     href:"#"
+    // },
+    // {
+    //     id:10,
+    //     name:'Admin',
+    //     href:"#"
+    // },
+    // {
+    //     id:11,
+    //     name:'Training',
+    //     href:"#"
+    // },
     {
         id:12,
         name:'Enhanced',
