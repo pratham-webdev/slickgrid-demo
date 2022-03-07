@@ -22,7 +22,7 @@ const navItems = [
     },
     {
         id:5,
-        name:'IR Peek-In',
+        name:'IR Wrapping',
         href:"peek.html"
     },
     {

@@ -70,7 +70,7 @@ var columns = [{
   },
   {
     id: "ml",
-    name: "ML Insights",
+    name: "ML",
     field: "ml",
     maxWidth: 40,
     cssClass: "cell-title",
