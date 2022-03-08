@@ -181,7 +181,7 @@ var options = {
 };
 
 function testFunc() {
-  return windowWidth > 1280 ? Slick.GridAutosizeColsMode.FitColsToViewport : Slick.GridAutosizeColsMode.IgnoreViewport
+  return windowWidth > 1200 ? Slick.GridAutosizeColsMode.FitColsToViewport : Slick.GridAutosizeColsMode.IgnoreViewport
 }
 
 function DataItem(i) {

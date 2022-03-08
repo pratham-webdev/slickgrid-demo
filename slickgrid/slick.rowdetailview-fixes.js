@@ -596,14 +596,27 @@
 
      //EDITED BY WEBDEV
   function newRowDetailHeight(item){
-    if(item.warning && item.ml){
-      return 50;
-    }
-    else if(item.warning || item.ml){
-      return 20;
+    if(window.innerWidth < 1300){
+      if(item.warning && item.ml){
+        return 55;
+      }
+      else if(item.warning || item.ml){
+        return 30;
+      }
+      else{
+        return 20;
+      }
     }
     else{
-      return 10;
+      if(item.warning && item.ml){
+        return 50;
+      }
+      else if(item.warning || item.ml){
+        return 20;
+      }
+      else{
+        return 10;
+      }
     }
   }
 

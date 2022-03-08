@@ -52,23 +52,32 @@ var columns = [{
     formatter: Slick.Formatters.Reviewed
   },
   {
-    id: "warn",
-    name: "Warning",
-    field: "warning",
+    id: "hasAdj",
+    name: "Has Adj",
+    field: "hasAdj",
     maxWidth: 40,
     cssClass: "cell-title",
     sortable: true,
-    formatter: Slick.Formatters.Warning
+    formatter: Slick.Formatters.Adjustments
   },
-  {
-    id: "ml",
-    name: "ML Insights",
-    field: "ml",
-    maxWidth: 40,
-    cssClass: "cell-title",
-    sortable: true,
-    formatter: Slick.Formatters.ML
-  },
+  // {
+  //   id: "warn",
+  //   name: "Warning",
+  //   field: "warning",
+  //   maxWidth: 40,
+  //   cssClass: "cell-title",
+  //   sortable: true,
+  //   formatter: Slick.Formatters.Warning
+  // },
+  // {
+  //   id: "ml",
+  //   name: "ML Insights",
+  //   field: "ml",
+  //   maxWidth: 40,
+  //   cssClass: "cell-title",
+  //   sortable: true,
+  //   formatter: Slick.Formatters.ML
+  // },
   {
     id: "date",
     name: "Date",
@@ -136,7 +145,7 @@ var columns = [{
     width: 40,
     cssClass: "cell-title",
     sortable: true,
-    formatter: Slick.Formatters.Adjustments
+    // formatter: Slick.Formatters.Adjustments
 
   },
   {
@@ -174,13 +183,14 @@ var options = {
 };
 
 function testFunc(){
-  return windowWidth > 1280 ? Slick.GridAutosizeColsMode.FitColsToViewport : Slick.GridAutosizeColsMode.IgnoreViewport
+  return windowWidth > 1200 ? Slick.GridAutosizeColsMode.FitColsToViewport : Slick.GridAutosizeColsMode.IgnoreViewport
 }
 
 function DataItem(i) {
   let temp = Math.ceil(Math.random() * 100) + 200;
   this.id = i;
   this.flag = 1;
+  this.hasAdj = (i % 4 == 0);
   this.warning = (i % 2 == 0);
   this.ml = (i % 4 == 0);
   // this.percentComplete = Math.round(Math.random() * 100);
@@ -259,11 +269,20 @@ function loadingTemplate() {
 //row detail template
 function loadView(itemDetail) {
   return `<div id="row-detail-view">
-  <div class="mb-2">
-      <span class="fw-bold">Description:</span><span class="ms-1">This is going to be a very long description about the expense of the invoice line item that is placed here to explain the details of this invoice line item to simulate a long description</span>
-  </div>
-  ${adjustmentsLoad()}
+      <p class="mb-2"><b>Description:</b> This is going to be a very long description about the expense of the invoice line item that is placed here to explain the details of this invoice line item to simulate a long description</p>
+  ${itemDetail.warning ? warningsOn() : ''}
+  ${itemDetail.ml ? MLOn() : ''}
+
 </div>`
+}
+
+function warningsOn(){
+  return `<p class="text-danger mb-2"><b>Warning:</b> Line item description contains a charge matching disallowed descriptions: "RESEARCH"</p>`
+}
+
+function MLOn(){
+  return `<p class="text-primary mb-2"><b>ML Recommendation:</b> Potential block billing identified as many as multiple activities in single line item description.</p>
+  <p class="text-primary"><b>ML Action Recommended:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines</p>`
 }
 
 function adjustmentsLoad(){
@@ -460,7 +479,7 @@ function buildGrid() {
   // push the plugin as the first column
   if(checkbox == false){
     columns.unshift(detailView.getColumnDefinition());
-    columns.unshift(checkboxSelector.getColumnDefinition());
+    // columns.unshift(checkboxSelector.getColumnDefinition());
   }
 
   grid = new Slick.Grid("#myGrid", dataView, columns, options);
@@ -617,7 +636,7 @@ function buildGrid() {
   dataView.setFilter(filter);
   dataView.endUpdate();
     dataView.setPagingOptions({
-      pageSize: adjustmentsOn ? 250 : 75
+      pageSize: 79
     });
   dataHolder.forEach(el => {
     detailView.expandDetailView(el);
