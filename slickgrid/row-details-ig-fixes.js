@@ -266,7 +266,7 @@ function loadingTemplate() {
 //row detail template
 function loadView(itemDetail) {
   return `<div id="row-detail-view">
-      <p><b>Description:</b>This is going to be a very long description about the expense of the invoice line item that is placed here to explain the details of this invoice line item to simulate a long description</p>
+      <p class="mb-2"><b>Description:</b> This is going to be a very long description about the expense of the invoice line item that is placed here to explain the details of this invoice line item to simulate a long description</p>
   ${itemDetail.warning ? warningsOn() : ''}
   ${itemDetail.ml ? MLOn() : ''}
 
@@ -274,11 +274,11 @@ function loadView(itemDetail) {
 }
 
 function warningsOn(){
-  return `<p class="text-danger"><b>Warning:</b> Line item description contains a charge matching disallowed descriptions: "RESEARCH"</p>`
+  return `<p class="text-danger mb-2"><b>Warning:</b> Line item description contains a charge matching disallowed descriptions: "RESEARCH"</p>`
 }
 
 function MLOn(){
-  return `<p class="text-primary"><b>ML Recommendation:</b> Potential block billing identified as many as multiple activities in single line item description.</p>
+  return `<p class="text-primary mb-2"><b>ML Recommendation:</b> Potential block billing identified as many as multiple activities in single line item description.</p>
   <p class="text-primary"><b>ML Action Recommended:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines</p>`
 }
 

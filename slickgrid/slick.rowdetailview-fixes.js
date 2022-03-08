@@ -581,7 +581,7 @@
     //////////////////////////////////////////////////////////////
     function applyTemplateNewLineHeight(item) {
       // the height is calculated by the template row count (how many line of items does the template view have)
-      var rowCount = _options.panelRows;
+      var rowCount = _options.panelRows ;
 
       // calculate padding requirements based on detail-content..
       // ie. worst-case: create an invisible dom node now & find it's height.
@@ -597,13 +597,13 @@
      //EDITED BY WEBDEV
   function newRowDetailHeight(item){
     if(item.warning && item.ml){
-      return 64;
+      return 50;
     }
     else if(item.warning || item.ml){
-      return 40
+      return 20;
     }
     else{
-      return 13
+      return 10;
     }
   }
 
