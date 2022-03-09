@@ -7,22 +7,22 @@ const navItems = [
     },
     {
         id:2,
-        name:'IR Fixes',
+        name:'Continuous Scroll',
         href:"fixes.html"
     },
     {
         id:3,
-        name:'IR Pagination',
+        name:'Pagination',
         href:"index.html"
     },
     {
         id:4,
-        name:'IR Scroll',
+        name:'Fixed Width',
         href:"cont-scroll.html"
     },
     {
         id:5,
-        name:'IR Wrapping',
+        name:'Wrapping',
         href:"peek.html"
     },
     {

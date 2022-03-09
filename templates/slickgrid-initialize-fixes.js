@@ -108,7 +108,7 @@ function minusGrid() {
 }
 
 
-const slickgridTemplate = `${gridButtonsBar}<div id="myGrid" style="width:100%; height:80vh"></div>`;
+const slickgridTemplate = `${gridButtonsBar}<div id="myGrid" style="width:100%;"></div>`;
 
 const slickGridPlusMinus = `<div id=plus-minus class="plus-minus position-fixed collapse" style="bottom:0; right:0;"><button class="btn btn-sm btn-primary m-2" onClick="plusGrid()">+</button><button class="btn btn-sm btn-primary m-2" onClick="minusGrid()">-</button></div>`
 
