@@ -8,24 +8,24 @@
       showCountText: "From {countBegin} to {countEnd} of {rowCount} rows",
       showCount: false,
       pagingOptions:[
+        // {
+        //   data: 0,
+        //   name: "All"
+        // },
+        // {
+        //   data: -1,
+        //   name: "Auto"
+        // },
         {
-          data: 0,
-          name: "All"
-        },
-        {
-          data: -1,
-          name: "Auto"
-        },
-        {
-          data: 25,
+          data: 79,
           name: "25"
         },
         {
-          data: 50,
+          data: 151,
           name: "50"
         },
         {
-          data: 100,
+          data: 0,
           name: "100"
         }
       ],

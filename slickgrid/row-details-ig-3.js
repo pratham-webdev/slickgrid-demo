@@ -19,6 +19,8 @@ var columnFilters = {};
 var sortcol = "title";
 var sortdir = 1;
 var selectedRowIds = [];
+var lineItemsNumber=50;
+
 
 var fakeNames = ['John Doe', 'Jane Doe', 'Chuck Norris', 'Bumblebee', 'Jackie Chan', 'Elvis Presley', 'Bob Marley', 'Mohammed Ali', 'Bruce Lee', 'Rocky Balboa'];
 
@@ -434,7 +436,7 @@ function comparer(a, b) {
 }
 
 function createData() {
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < lineItemsNumber; i++) {
     data[i] = new DataItem(i);
     dataHolder[i] = data[i];
   }
