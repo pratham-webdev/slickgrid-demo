@@ -11,6 +11,7 @@ var sortcol = "title";
 var sortdir = 1;
 var selectedRowIds = [];
 var lineItemsNumber=50;
+var maxLineItems=20;
 
 var fakeNames = ['John Doe', 'Jane Doe', 'Chuck Norris', 'Bumblebee', 'Jackie Chan', 'Elvis Presley', 'Bob Marley', 'Mohammed Ali', 'Bruce Lee', 'Rocky Balboa'];
 
@@ -176,7 +177,7 @@ var options = {
   showHeaderRow: true,
   enableAutoSizeColumns: true,
   autosizeColsMode: testFunc(),
-  autoHeight: lineItemsNumber <= 15 ? true : false,
+  autoHeight: lineItemsNumber <= maxLineItems ? true : false,
   alwaysAllowHorizontalScroll: true,
   viewportClass: "#myGrid"
 };
@@ -279,7 +280,7 @@ function warningsOn(){
 }
 
 function MLOn(){
-  return `<p class="text-primary mb-2"><b>Recommendation:</b> Potential block billing identified as many as multiple activities in single line item description. <b>Insight:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines.</p>`
+  return `<p class="text-primary mb-2"><b>Insight:</b> Potential block billing identified as many as multiple activities in single line item description. <b>Recommendation:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines.</p>`
 }
 
 function adjustmentsLoad() {
@@ -638,7 +639,7 @@ function buildGrid() {
     detailView.expandDetailView(el);
     // detailView.resizeDetailView(el);
   });
-  if(lineItemsNumber>15){
+  if(lineItemsNumber>maxLineItems){
     $('#myGrid').css('height','80vh');
   }
   setTimeout(()=>{
