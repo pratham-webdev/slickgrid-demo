@@ -35,6 +35,16 @@ const gridButtonItems = [{
         name: "Clear All Filters",
         click: ""
     },
+    {
+        id: 8,
+        name: "Show Adjustments",
+        click: `turnAdjusments()`
+    },
+    {
+        id: 9,
+        name: "Fullscreen",
+        click: `fullScreenView()`
+    },
 ]
 
 function collapseAllNow() {

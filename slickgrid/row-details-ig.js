@@ -282,8 +282,7 @@ function warningsOn(){
 }
 
 function MLOn(){
-  return `<p class="text-primary mb-2"><b>ML Recommendation:</b> Potential block billing identified as many as multiple activities in single line item description.</p>
-  <p class="text-primary"><b>ML Action Recommended:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines</p>`
+  return `<p class="text-primary mb-2"><b>Recommendation:</b> Potential block billing identified as many as multiple activities in single line item description. <b>Insight:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines.</p>`
 }
 
 function adjustmentsLoad(){
@@ -637,7 +636,7 @@ function buildGrid() {
   dataView.setFilter(filter);
   dataView.endUpdate();
     dataView.setPagingOptions({
-      pageSize: 79
+      pageSize: 72
     });
   dataHolder.forEach(el => {
     detailView.expandDetailView(el);

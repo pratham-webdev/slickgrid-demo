@@ -13,7 +13,7 @@ function resizeContent() {
   } else {
     $('#left-nav-panel').addClass("show");
   }
-  window.innerWidth >1280 ? grid.setOptions({autosizeColsMode:Slick.GridAutosizeColsMode.FitColsToViewport}) : grid.setOptions({autosizeColsMode:Slick.GridAutosizeColsMode.IgnoreViewport});
+  window.innerWidth >1200 ? grid.setOptions({autosizeColsMode:Slick.GridAutosizeColsMode.FitColsToViewport}) : grid.setOptions({autosizeColsMode:Slick.GridAutosizeColsMode.IgnoreViewport});
 };
 
 function resizeGrid() {
@@ -57,4 +57,10 @@ function fullScreenView(){
  }
 }
 
-resizeContent();
+function toggleFullAdjustments(){
+  console.log("fired");
+  $('#slick-button-8,#slick-button-9').toggle();
+}
+toggleFullAdjustments();
+
+// resizeContent();
