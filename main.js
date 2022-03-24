@@ -57,8 +57,24 @@ function fullScreenView(){
  }
 }
 
+function setLineItems(){
+  let lineItemsLimit = $('#line-items-limit').val() == 0 ? 20 : $('#line-items-limit').val();
+  let lineItemsAmt = $('#line-items-amt').val() == 0 ? 50 : $('#line-items-amt').val();
+  checkbox = true;
+  maxLineItems=Number(lineItemsLimit);
+  lineItemsNumber=Number(lineItemsAmt);
+  if(maxLineItems<lineItemsNumber){
+    $('#myGrid').css('height','80vh');
+    buildGrid();
+  }
+  else{
+    $('#myGrid').css('height','max-content');
+    buildGrid();
+  }
+ 
+}
+
 function toggleFullAdjustments(){
-  console.log("fired");
   $('#slick-button-8,#slick-button-9').toggle();
 }
 toggleFullAdjustments();

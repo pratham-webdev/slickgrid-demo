@@ -57,7 +57,15 @@ function collapseAllNow() {
 const gridButtonsBar = `<div id="grid-buttons-bar" class="d-flex align-items-center justify-content-between pb-2">
 ${createGridButtonGroup()}
 </div>
-<div class="p-2 border border-bottom-0 bg-white text-dark fw-bold">100 Line Items • 0 Selected • 0 Warnings • 0 Reviewed</div>`
+<div class="p-2 border border-bottom-0 bg-white d-flex align-items-center justify-content-between"><div class="text-dark fw-bold">100 Line Items • 0 Selected • 0 Warnings • 0 Reviewed </div>${lineItemsAdjuster()}</div>`
+
+function lineItemsAdjuster(){ 
+    return `<div class="d-flex align-items-center justify-content-between">
+<input type="number" class="form-control" id="line-items-limit" aria-describedby="emailHelp" placeholder="Max Line Items">
+<input type="number" class="form-control ms-2" id="line-items-amt" aria-describedby="emailHelp" placeholder="No. of Line Items">
+<button id="set-line-items" class="btn btn-sm btn-outline-primary ms-2" onClick="setLineItems()">Submit</button>
+</div>`
+}
 
 function createGridButtonItems(el) {
     if (window.innerWidth > 1100) {

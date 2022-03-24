@@ -493,6 +493,10 @@ function buildGrid() {
   grid.registerPlugin(detailView);
   grid.registerPlugin(checkboxSelector);
 
+  grid.setOptions({
+  autoHeight: lineItemsNumber <= maxLineItems ? true : false,
+  });
+
 
   //only allowing single cell click instead of complete row
   // detailView.setOptions({
