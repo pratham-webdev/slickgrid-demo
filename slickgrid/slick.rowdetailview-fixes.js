@@ -598,7 +598,7 @@
   function newRowDetailHeight(item){
     if(window.innerWidth < 1300){
       if(item.warning && item.ml){
-        return 50;
+        return 55;
       }
       else if(item.warning || item.ml){
         return 30;
@@ -609,7 +609,7 @@
     }
     else{
       if(item.warning && item.ml){
-        return 30;
+        return 50;
       }
       else if(item.warning || item.ml){
         return 20;

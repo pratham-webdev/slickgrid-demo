@@ -15,16 +15,16 @@ const navItems = [
         name:'Pagination',
         href:"index.html"
     },
-    {
-        id:4,
-        name:'Fixed Width',
-        href:"cont-scroll.html"
-    },
-    {
-        id:5,
-        name:'Wrapping',
-        href:"peek.html"
-    },
+    // {
+    //     id:4,
+    //     name:'Fixed Width',
+    //     href:"cont-scroll.html"
+    // },
+    // {
+    //     id:5,
+    //     name:'Wrapping',
+    //     href:"peek.html"
+    // },
     {
         id:6,
         name:'Documents',
@@ -40,21 +40,21 @@ const navItems = [
         name:'CSM',
         href:"#"
     },
-    // {
-    //     id:9,
-    //     name:'TAP',
-    //     href:"#"
-    // },
-    // {
-    //     id:10,
-    //     name:'Admin',
-    //     href:"#"
-    // },
-    // {
-    //     id:11,
-    //     name:'Training',
-    //     href:"#"
-    // },
+    {
+        id:9,
+        name:'TAP',
+        href:"#"
+    },
+    {
+        id:10,
+        name:'Admin',
+        href:"#"
+    },
+    {
+        id:11,
+        name:'Training',
+        href:"#"
+    },
     {
         id:12,
         name:'Enhanced',

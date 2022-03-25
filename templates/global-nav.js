@@ -34,7 +34,7 @@ const gnItems = [
 
 function globalNavTemplate() { return`<nav class="navbar navbar-light bg-white border border-bottom-0 py-1 global-nav">
 <div class="container-fluid">
-  <a class="navbar-brand" href="#">TeamConnect Demo</a>
+  <div><a class="navbar-brand text-danger" href="#">TeamConnect Demo</a> <span class="text-danger navbar-disclaimer"><b>DISCLAIMER:</b> This is a demo environment</span></div>
   <form class="d-flex w-25">
     <input class="form-control btn-sm me-2" type="search" placeholder="Search" aria-label="Search">
     <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->

@@ -3,6 +3,18 @@ html,body{
     overflow: hidden;
 }
 
+.navbar-brand{
+  display: inline-flex;
+    padding: 4px;
+    background: rgb(220 53 69 / 20%);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.navbar-disclaimer{
+  font-size: .6rem;
+}
+
 .modal{
   z-index: 20000 !important;
 }
@@ -232,4 +244,11 @@ html,body{
   #content-container .card-label{
     width: 50%;
   }
+}
+
+.text-machine-learning{
+  background: rgba(13, 110, 253,.2);
+    display: inline-block;
+    padding: 3px;
+    border-radius: 4px;
 }

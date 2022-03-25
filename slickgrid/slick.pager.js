@@ -17,11 +17,11 @@
         //   name: "Auto"
         // },
         {
-          data: 72,
+          data: 79,
           name: "25"
         },
         {
-          data: 138,
+          data: 151,
           name: "50"
         },
         {
