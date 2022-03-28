@@ -61,10 +61,19 @@ ${createGridButtonGroup()}
 
 function lineItemsAdjuster(){ 
     return `<div class="d-flex align-items-center justify-content-between">
-<input type="number" class="form-control" id="line-items-limit" aria-describedby="emailHelp" placeholder="Max Line Items">
+    ${selectMaxLineItems()}
 <input type="number" class="form-control ms-2" id="line-items-amt" aria-describedby="emailHelp" placeholder="No. of Line Items">
 <button id="set-line-items" class="btn btn-sm btn-outline-primary ms-2" onClick="setLineItems()">Submit</button>
 </div>`
+}
+
+function selectMaxLineItems(){
+    return `<select id="line-items-limit" class="form-select">
+    <option value="0" selected>Select Max Line Items</option>
+    <option value="25">25</option>
+    <option value="50">50</option>
+    <option value="100">100</option>
+  </select>`
 }
 
 function createGridButtonItems(el) {
