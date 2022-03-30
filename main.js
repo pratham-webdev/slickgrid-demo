@@ -57,6 +57,7 @@ function fullScreenView() {
   }
 }
 
+//max line items input settings
 function setLineItems() {
   let lineItemsLimit = $('#line-items-limit').val() == 0 ? 20 : $('#line-items-limit').val();
   let lineItemsAmt = $('#line-items-amt').val() == 0 ? 50 : $('#line-items-amt').val();
@@ -78,6 +79,23 @@ function setLineItems() {
   }
 
 }
+
+//tooltip configuration
+function adjustmentsTooltipHover(){
+  $(".adjustment-icon").on('mouseover mouseout',function(event){
+    if(event.type === 'mouseover'){   
+    let topAdj = Math.round($(this).offset().top);
+    let leftAdj = Math.round($(this).offset().left);
+    $('#adjustments-tooltip').css('top',`${topAdj+20}px`);
+    $('#adjustments-tooltip').css('left',`${leftAdj}px`);
+    $('#adjustments-tooltip').show();
+    }
+    else{
+      $('#adjustments-tooltip').hide();
+    }
+  })
+}
+
 
 function toggleFullAdjustments() {
   $('#slick-button-8,#slick-button-9').toggle();

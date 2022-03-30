@@ -6,12 +6,21 @@ var data = [];
 var dataHolder = []; // cloning untouched dataset for opening detail view
 var adjustmentsOn = false; //turn on/off adjustments
 var checkbox = false; //for checking checbox added to grid
+var description = [`Exchange e-mail correspondence with Joh Doe regarding payroll production. Exchange e-mail correspondence with Mulaney regarding status of data transfer. Exchange e-mail correspondence with Joh Doe.`, 
+
+`Exchange e-mail correspondence with Joh Doe regarding payroll production.`, 
+
+`Exchange e-mail correspondence with Mulaney regarding status of data transfer.`,
+
+`Exchange e-mail correspondence with Joh Doe regarding payroll production. Exchange e-mail correspondence with Mulaney regarding status of data transfer. Exchange e-mail correspondence with Joh Doe and review background information regarding restrictions on Berry's house and analysis of job functions. Exchange e-mail correspondence with plaintiffs' counsel regarding deposition scheduling. Exchange e-mail correspondence with Joh Doe regarding contract.`,
+
+`Exchange e-mail correspondence with Garrett Smith regarding payroll production. Exchange e-mail correspondence with Mulaney regarding status of data transfer. Exchange e-mail correspondence with Joh Doe and review background information regarding restrictions on Lana's house`];
 var columnFilters = {};
 var sortcol = "title";
 var sortdir = 1;
 var selectedRowIds = [];
-var lineItemsNumber=50;
-var maxLineItems=20;
+var lineItemsNumber=25;
+var maxLineItems=100;
 
 var fakeNames = ['John Doe', 'Jane Doe', 'Chuck Norris', 'Bumblebee', 'Jackie Chan', 'Elvis Presley', 'Bob Marley', 'Mohammed Ali', 'Bruce Lee', 'Rocky Balboa'];
 
@@ -191,8 +200,11 @@ function DataItem(i) {
   this.id = i;
   this.flag = 1;
   this.hasAdj = (i % 4 == 0);
-  this.warning = (i % 5 == 0);
-  this.ml = (i % 10 == 0);
+  this.warning = (i % 2 == 0);
+  this.warning2 = (i % 20 == 0);
+  this.ml = (i % 2 == 0);
+  this.ml2 = (i % 20 == 0);
+
   // this.percentComplete = Math.round(Math.random() * 100);
   // this.effortDriven = (i % 5 == 0);
   this.timekeeper = 1;
@@ -204,6 +216,7 @@ function DataItem(i) {
   this.disc = "$ 0.00";
   this.adj = "$ -100.00";
   this.amt = `$ ${(temp * this.units) -100}`;
+  this.desc= description[(Math.round(Math.random() * 4))];
   // this.finish = "01/05/2009";
   // this.title = "Task " + i;
   // this.duration = "5 days";
@@ -268,9 +281,12 @@ function loadingTemplate() {
 //row detail template
 function loadView(itemDetail) {
   return `<div id="row-detail-view">
-      <p class="mb-2"><b>Description:</b> This is going to be a very long description about the expense of the invoice line item that is placed here to explain the details of this invoice line item to simulate a long description</p>
+      <p class="mb-2"><b>Description:</b> ${itemDetail.desc}</p>
   ${itemDetail.warning ? warningsOn() : ''}
+  ${itemDetail.warning2 ? warningsOn() : ''}
   ${itemDetail.ml ? MLOn() : ''}
+  ${itemDetail.ml2 ? MLOn() : ''}
+
 
 </div>`
 }
@@ -280,7 +296,7 @@ function warningsOn(){
 }
 
 function MLOn(){
-  return `<div class="text-machine-learning"><p class="mb-2"><b>Insight:</b> Potential block billing identified as many as multiple activities in single line item description.</p><p class="mb-1"> <b>Recommendation:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines.</p></div>`
+  return `<div class="mb-1"><div class="text-machine-learning"><p class="mb-2"><b>Insight:</b> Potential block billing identified as many as multiple activities in single line item description.</p><p class="mb-1"> <b>Recommendation:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines.</p></div></div>`
 }
 
 function adjustmentsLoad() {
@@ -647,8 +663,9 @@ function buildGrid() {
     $('#myGrid').css('height','80vh');
   }
   setTimeout(()=>{
-    grid.resizeCanvas()
-  grid.autosizeColumns()
+    grid.resizeCanvas();
+  grid.autosizeColumns();
+  adjustmentsTooltipHover();
   }, 500);
 
 }

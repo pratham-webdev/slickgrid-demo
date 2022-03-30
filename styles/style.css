@@ -252,3 +252,27 @@ html,body{
     padding: 3px;
     border-radius: 4px;
 }
+
+#adjustments-tooltip{
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 6px;
+  border-radius: 2px;
+
+  z-index: 99999;
+}
+
+#adjustments-tooltip p{
+  font-size: .7rem;
+  margin-bottom: 2px;
+}
+
+#adjustmentModal, #adjustmentModal .btn-sm{
+  font-size: .8rem !important;
+}
+
+

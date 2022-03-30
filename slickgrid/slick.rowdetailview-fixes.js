@@ -597,25 +597,31 @@
      //EDITED BY WEBDEV
   function newRowDetailHeight(item){
     if(window.innerWidth < 1300){
-      if(item.warning && item.ml){
-        return 55;
+      if(item.warning && item.ml && item.warning2 && item.ml2){
+        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  95 :  85;
+      }
+      else if(item.warning && item.ml){
+        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  65 :  55;
       }
       else if(item.warning || item.ml){
-        return 30;
+        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs')  ?  40 :  30;
       }
       else{
-        return 20;
+        return item.desc.includes('Garrett')|| item.desc.includes('plaintiffs')  ?  30 :  20;
       }
     }
     else{
-      if(item.warning && item.ml){
-        return 50;
+      if(item.warning && item.ml && item.warning2 && item.ml2){
+        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs')  ?  95 :  85;
+      }
+      else if(item.warning && item.ml){
+        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  60 :  50;
       }
       else if(item.warning || item.ml){
-        return 20;
+        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  30 :  20;
       }
       else{
-        return 10;
+        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs')  ?  20 :  10;
       }
     }
   }

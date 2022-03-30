@@ -6,6 +6,7 @@ var data = [];
 var dataHolder = [];// cloning untouched dataset for opening detail view
 var adjustmentsOn = false; //turn on/off adjustments
 var checkbox = false; //for checking checbox added to grid
+var description = ['This is going to be a very long description about the expense of the invoice line item that is placed here to explain the details of this invoice line item to simulate a long description']
 var columnFilters = {};
 var sortcol = "title";
 var sortdir = 1;
@@ -205,6 +206,8 @@ function DataItem(i) {
   this.disc = "$ 0.00";
   this.adj = "$ -100.00";
   this.amt = `$ ${(temp * this.units) -100}`;
+  this.desc= description[0];
+
 
   // this.finish = "01/05/2009";
   // this.title = "Task " + i;
@@ -270,7 +273,7 @@ function loadingTemplate() {
 //row detail template
 function loadView(itemDetail) {
   return `<div id="row-detail-view">
-      <p class="mb-2"><b>Description:</b> This is going to be a very long description about the expense of the invoice line item that is placed here to explain the details of this invoice line item to simulate a long description</p>
+      <p class="mb-2"><b>Description:</b> ${itemDetail.desc}</p>
   ${itemDetail.warning ? warningsOn() : ''}
   ${itemDetail.ml ? MLOn() : ''}
 
@@ -644,6 +647,7 @@ function buildGrid() {
   setTimeout(()=>{
     grid.resizeCanvas();
   grid.autosizeColumns();
+  adjustmentsTooltipHover();
   }, 1000);
 }
 

@@ -110,7 +110,7 @@ function createGridButtonGroup() {
         })
         return `<div class="me-2"><input class="form-control btn-sm" type="search" placeholder="Search" aria-label="Search">
       </div>
-      <div class="dropdown">
+      <div class="dropdown dropup">
       <button class="btn btn-sm btn-outline-new dropdown-toggle" type="button" id="dropdown-gn-items" data-bs-toggle="dropdown" aria-expanded="false">
         More Actions
       </button>
@@ -141,4 +141,4 @@ const slickGridPlusMinus = `<div id="plus-minus" class="plus-minus position-fixe
 
 $('#card-4').append(slickgridTemplate);
 
-$('body').append(slickGridPlusMinus);
+// $('body').append(slickGridPlusMinus);

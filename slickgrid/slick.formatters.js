@@ -71,7 +71,7 @@
     return value ? `<a class="link-warning" href="#" data-bs-toggle="modal" data-bs-target="#MLModal"><i class="bi bi-exclamation-triangle-fill"></i></a>` : "";
   }
   function AdjustmentFormatter(row, cell, value, columnDef, dataContext) {
-    return value ? `<a class="link-primary" href="#" data-bs-toggle="modal" data-bs-target="#adjustmentModal"><i class="bi bi-markdown-fill fs-6 me-2"></i>${typeof(value) === 'boolean' ? '' : value }</a>` : "";
+    return value ? `<a class="link-primary adjustment-icon" href="#" data-bs-toggle="modal" data-bs-target="#adjustmentModal"><i class="bi bi-markdown-fill fs-6 me-2"></i>${typeof(value) === 'boolean' ? '' : value }</a>` : "";
   }
 
   // exports
