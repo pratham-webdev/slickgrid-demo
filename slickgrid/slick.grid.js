@@ -1857,7 +1857,10 @@ if (typeof Slick === "undefined") {
               });
             })
             .on("dragend", function (e, dd) {
+              //EDITED BY WEBDEV
               $(this).parent().removeClass("slick-header-column-active");
+              console.log('end');
+              
 
               var triggeredByColumn = $(this).parent().attr("id").replace(uid, "");
               if (trigger(self.onBeforeColumnsResize, { triggeredByColumn: triggeredByColumn }) === true) {
@@ -1877,6 +1880,8 @@ if (typeof Slick === "undefined") {
               render();
               trigger(self.onColumnsResized, { triggeredByColumn: triggeredByColumn });
               setTimeout(function () { columnResizeDragging = false; }, 300);
+              setTimeout(function () { $('.slick-viewport.slick-viewport-top.slick-viewport-left').floatingScrollbar(); }, 1000);
+
             })
             .on("dblclick", function () {
               var triggeredByColumn = $(this).parent().attr("id").replace(uid, "");

@@ -7,7 +7,7 @@ const navItems = [
     },
     {
         id:2,
-        name:'Continuous Scroll',
+        name:'Auto Height',
         href:"fixes.html"
     },
     {

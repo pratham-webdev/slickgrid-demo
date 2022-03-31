@@ -21,6 +21,7 @@ function resizeGrid() {
   // $('#myGrid').css('width', gridwidth);
   grid.resizeCanvas();
   grid.autosizeColumns();
+  $('.slick-viewport.slick-viewport-top.slick-viewport-left').floatingScrollbar(false)
 }
 
 function turnAdjusments() {

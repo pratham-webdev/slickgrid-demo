@@ -275,4 +275,8 @@ html,body{
   font-size: .8rem !important;
 }
 
+#floating-scrollbar{
+  z-index:99999
+}
+
 
