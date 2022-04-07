@@ -8,7 +8,7 @@ const navItems = [
     {
         id:2,
         name:'Auto Height',
-        href:"fixes.html"
+        href:"index.html"
     },
     // {
     //     id:3,
@@ -85,7 +85,7 @@ function activeLocation(id,href){
     else{
         path = window.location.pathname;
     }
-    return "/"+href === path || (id===3 && (path==="/" || path==="/index.html")) ? 'active' : "";
+    return "/"+href === path || (id===2 && (path==="/" || path==="/index.html")) ? 'active' : "";
 }
 
 function navItemTemplate(el){
