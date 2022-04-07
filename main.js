@@ -60,7 +60,7 @@ function fullScreenView() {
 
 //max line items input settings
 function setLineItems() {
-  let lineItemsLimit = $('#line-items-limit').val() == 0 ? 20 : $('#line-items-limit').val();
+  let lineItemsLimit = $('#line-items-limit').val() == 0 ? 100 : $('#line-items-limit').val();
   let lineItemsAmt = $('#line-items-amt').val() == 0 ? 50 : $('#line-items-amt').val();
   checkbox = true;
   maxLineItems = Number(lineItemsLimit);

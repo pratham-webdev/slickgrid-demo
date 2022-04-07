@@ -10,11 +10,11 @@ const navItems = [
         name:'Auto Height',
         href:"fixes.html"
     },
-    {
-        id:3,
-        name:'Pagination',
-        href:"index.html"
-    },
+    // {
+    //     id:3,
+    //     name:'Pagination',
+    //     href:"index.html"
+    // },
     // {
     //     id:4,
     //     name:'Fixed Width',

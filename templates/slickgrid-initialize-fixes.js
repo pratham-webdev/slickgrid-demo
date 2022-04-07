@@ -69,7 +69,7 @@ function lineItemsAdjuster(){
 
 function selectMaxLineItems(){
     return `<select id="line-items-limit" class="form-select">
-    <option value="0" selected>Select Max Line Items</option>
+    <option value="100" selected>Select Max Line Items</option>
     <option value="25">25</option>
     <option value="50">50</option>
     <option value="100">100</option>
