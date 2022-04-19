@@ -286,8 +286,6 @@ function loadView(itemDetail) {
   ${itemDetail.warning2 ? warningsOn() : ''}
   ${itemDetail.ml ? MLOn() : ''}
   ${itemDetail.ml2 ? MLOn() : ''}
-
-
 </div>`
 }
 

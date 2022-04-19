@@ -46,10 +46,6 @@ const MLModalTemplate = `<div class="modal fade" id="MLModal" tabindex="-1">
 </div>`;
 
 const adjustmentsModalBody = `
-<div class="mb-2">
-    <span class="fw-bold">Adjustment:</span><span class="ms-1 text-primary"><i
-            class="bi bi-markdown-fill fs-5 text-primary ms-1"></i></span><span class="ms-2">Manual</span>
-</div>
 
 <div class="mb-2">
     <div class="mb-1">
@@ -60,7 +56,7 @@ const adjustmentsModalBody = `
             <div class="mb-1">
                 <span>2/1/2022 - Quantity adjusted to 2.00 hours - <a href="#">John Doe</a></span>
             </div>
-            <div class="mb-1">
+            <div class="mb-2">
                 <span>Reason for adjustment:</span><span class="text-primary ms-1">Excessive time on task</span>
             </div>
         </div>
@@ -68,14 +64,12 @@ const adjustmentsModalBody = `
             <div class="mb-1">
                 <span>Comments to Vendor:</span><span class="text-primary ms-1">New Amount</span>
             </div>
-            <div class="mb-1">
+            <div class="mb-2">
                 <span>Reason for adjustment:</span><span class="text-primary ms-1">New Amount</span>
             </div>
         </div>
     </div>
-    <div class="my-2">
-        <button class="btn btn-sm btn-primary">Revert</button>
-    </div>
+    
     <div class="border-bottom"></div>
 </div>`;
 
@@ -84,15 +78,26 @@ const adjustmentsModalBody = `
 const AdjustmentModalTemplate = `<div class="modal fade" id="adjustmentModal" tabindex="-1">
 <div class="modal-dialog modal-dialog-centered modal-lg">
   <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title">Adjustments</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-header align-items-center">
+      <h5 class="modal-title">Adjustment History</h5>
+      <div>
+      <button type="button" class="btn btn-sm btn-outline-primary me-2">Make Adjustment</button>
+      <button type="button" class="btn btn-outline-new border-0 p-1" data-bs-dismiss="modal" aria-label="Close"><i class="fs-4 bi bi-x lh-1"></i></button>
+      </div>
     </div>
-    <div class="modal-body">
-    ${adjustmentsModalBody}
-    ${adjustmentsModalBody}
-    ${adjustmentsModalBody}
+    <div class="modal-body pt-2">
+    <div class="mb-2">
+    <span class="fw-bold">Adjustment:</span><span class="ms-1 text-primary"><i
+            class="bi bi-markdown-fill fs-5 text-primary ms-1"></i></span><span class="ms-2">Manual</span>
 </div>
+    ${adjustmentsModalBody}
+    ${adjustmentsModalBody}
+    ${adjustmentsModalBody}
+    <div class="mt-3">
+    <button class="btn btn-sm btn-primary">Revert</button>
+</div>
+</div>
+
   </div>
 </div>
 </div>`
