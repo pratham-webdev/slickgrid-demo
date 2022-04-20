@@ -294,7 +294,7 @@ function warningsOn(){
 }
 
 function MLOn(){
-  return `<div class="mb-1"><div class="text-machine-learning"><p class="mb-2"><b>Insight:</b> Potential block billing identified as many as multiple activities in single line item description.</p><p class="mb-1"> <b>Recommendation:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines.</p></div></div>`
+  return `<div class="mb-1"><div class="text-machine-learning default"><p class="mb-2"><b>Insight:</b> Potential block billing identified as many as multiple activities in single line item description.</p><p class="mb-1 ml-recommend"> <b>Recommendation:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines.</p></div></div>`
 }
 
 function adjustmentsLoad() {

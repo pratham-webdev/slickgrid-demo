@@ -61,14 +61,24 @@ ${createGridButtonGroup()}
 
 function lineItemsAdjuster(){ 
     return `<div class="d-flex align-items-center justify-content-between">
+    ${selectMLColor()}
+    <button id="set-ml-color-setting" class="btn btn-sm btn-outline-primary ms-2" onClick="setMLColor()">Submit</button>
     ${selectMaxLineItems()}
 <input type="number" class="form-control ms-2" id="line-items-amt" aria-describedby="emailHelp" placeholder="No. of Line Items">
 <button id="set-line-items" class="btn btn-sm btn-outline-primary ms-2" onClick="setLineItems()">Submit</button>
 </div>`
 }
 
+function selectMLColor(){
+    return `<select id="ML-color-setting" class="form-select">
+    <option value="default" selected>Select color for ML</option>
+    <option value="black">Black</option>
+    <option value="orange">Orange</option>
+  </select>`
+}
+
 function selectMaxLineItems(){
-    return `<select id="line-items-limit" class="form-select">
+    return `<select id="line-items-limit" class="form-select ms-2">
     <option value="100" selected>Select Max Line Items</option>
     <option value="25">25</option>
     <option value="50">50</option>

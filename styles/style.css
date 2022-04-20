@@ -246,11 +246,33 @@ html,body{
   }
 }
 
-.text-machine-learning{
+.text-machine-learning.default{
   background: rgba(13, 110, 253,.2);
     display: inline-block;
     padding: 3px;
     border-radius: 4px;
+}
+
+.text-machine-learning.black{
+  border: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 0 8px #ddd;
+    display: inline-block;
+    padding: 3px;
+    border-radius: 4px;
+}
+
+.text-machine-learning.orange{
+  border: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 0 8px #ddd;
+    display: inline-block;
+    padding: 3px;
+    border-radius: 4px;
+}
+
+.text-machine-learning.orange .ml-recommend{
+  color:#e76b06;
 }
 
 #adjustments-tooltip{

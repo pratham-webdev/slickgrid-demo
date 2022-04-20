@@ -78,7 +78,11 @@ function setLineItems() {
 
     buildGrid();
   }
+}
 
+function setMLColor(){
+  let MLColor = String($('#ML-color-setting').val());
+ $('.text-machine-learning').attr('class', `text-machine-learning ${MLColor}`);
 }
 
 //tooltip configuration
