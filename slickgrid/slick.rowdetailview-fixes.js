@@ -600,25 +600,37 @@
       if(item.warning && item.ml && item.warning2 && item.ml2){
         return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  95 :  85;
       }
+      else if(item.warning && item.ml && item.warning2){
+        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  75  :  55;
+      }
       else if(item.warning && item.ml){
         return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  65 :  55;
       }
-      else if(item.warning || item.ml){
-        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs')  ?  40 :  30;
+      else if(item.warning){
+        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  30 :  20;
+      }
+      else if(item.ml){
+        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  40 :  30;
       }
       else{
-        return item.desc.includes('Garrett')|| item.desc.includes('plaintiffs')  ?  30 :  20;
+        return 20;
       }
     }
     else{
       if(item.warning && item.ml && item.warning2 && item.ml2){
         return item.desc.includes('Garrett') || item.desc.includes('plaintiffs')  ?  95 :  85;
       }
+      else if(item.warning && item.ml && item.warning2){
+        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  65 :  55;
+      }
       else if(item.warning && item.ml){
         return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  60 :  50;
       }
-      else if(item.warning || item.ml){
+      else if(item.warning){
         return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  30 :  20;
+      }
+      else if(item.ml){
+        return item.desc.includes('Garrett') || item.desc.includes('plaintiffs') ?  40 :  30;
       }
       else{
         return item.desc.includes('Garrett') || item.desc.includes('plaintiffs')  ?  20 :  10;

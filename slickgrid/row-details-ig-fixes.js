@@ -200,10 +200,10 @@ function DataItem(i) {
   this.id = i;
   this.flag = 1;
   this.hasAdj = (i % 4 == 0);
-  this.warning = (i % 5 == 0);
+  this.warning = (i % 10 == 0);
   this.warning2 = (i % 20 == 0);
   this.ml = (i % 5 == 0);
-  this.ml2 = (i % 20 == 0);
+  // this.ml2 = (i % 20 == 0);
 
   // this.percentComplete = Math.round(Math.random() * 100);
   // this.effortDriven = (i % 5 == 0);

@@ -60,24 +60,24 @@ function fullScreenView() {
 
 //max line items input settings
 function setLineItems() {
-  let lineItemsLimit = $('#line-items-limit').val() == 0 ? 100 : $('#line-items-limit').val();
+  // let lineItemsLimit = $('#line-items-limit').val() == 0 ? 100 : $('#line-items-limit').val();
   let lineItemsAmt = $('#line-items-amt').val() == 0 ? 50 : $('#line-items-amt').val();
   checkbox = true;
-  maxLineItems = Number(lineItemsLimit);
+  // maxLineItems = Number(lineItemsLimit);
   lineItemsNumber = Number(lineItemsAmt);
-  if (maxLineItems < lineItemsNumber) {
-    $('#myGrid').css('height', '80vh');
-    if($('#plus-minus').length == 0){
-      $('body').append(slickGridPlusMinus);
-    }
-    buildGrid();
-  }
-  else {
+  // if (maxLineItems < lineItemsNumber) {
+  //   $('#myGrid').css('height', '80vh');
+  //   if($('#plus-minus').length == 0){
+  //     $('body').append(slickGridPlusMinus);
+  //   }
+  //   buildGrid();
+  // }
+  // else {
     $('#myGrid').css('height', 'max-content');
     $('#plus-minus').remove();
 
     buildGrid();
-  }
+  // }
 }
 
 function setMLColor(){

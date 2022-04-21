@@ -45,16 +45,13 @@ const MLModalTemplate = `<div class="modal fade" id="MLModal" tabindex="-1">
 </div>
 </div>`;
 
-const adjustmentsModalBody = `
+function adjustmentsModalBody(type){ return `
 
 <div class="mb-2">
-    <div class="mb-1">
-        <span class="fw-bold">Quantity</span>
-    </div>
     <div class="d-flex align-items-center justify-content-between">
         <div class="w-50">
             <div class="mb-1">
-                <span>2/1/2022 - Quantity adjusted to 2.00 hours - <a href="#">John Doe</a></span>
+               <b>${type}:</b> <span>2/1/2022 - Quantity adjusted to 2.00 hours - <a href="#">${type == 'Auto' ? 'System' : 'John Doe'}</a></span>
             </div>
             <div class="mb-2">
                 <span>Reason for adjustment:</span><span class="text-primary ms-1">Excessive time on task</span>
@@ -72,6 +69,7 @@ const adjustmentsModalBody = `
     
     <div class="border-bottom"></div>
 </div>`;
+}
 
 
 
@@ -90,9 +88,12 @@ const AdjustmentModalTemplate = `<div class="modal fade" id="adjustmentModal" ta
     <span class="fw-bold">Adjustment:</span><span class="ms-1 text-primary"><i
             class="bi bi-markdown-fill fs-5 text-primary ms-1"></i></span><span class="ms-2">Manual</span>
 </div>
-    ${adjustmentsModalBody}
-    ${adjustmentsModalBody}
-    ${adjustmentsModalBody}
+<div class="mb-1">
+        <span class="fw-bold">Quantity:</span>
+    </div>
+    ${adjustmentsModalBody('Manual')}
+    ${adjustmentsModalBody('Auto')}
+    ${adjustmentsModalBody('Auto')}
     <div class="mt-3">
     <button class="btn btn-sm btn-primary">Revert</button>
 </div>
