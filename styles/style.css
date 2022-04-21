@@ -277,6 +277,18 @@ html,body{
   color:#B85900;
 }
 
+.text-machine-learning.default .highlight,.text-machine-learning.bordered .highlight{
+  background-color: rgba(243, 180, 8, 0.9);
+}
+
+.text-machine-learning.black .highlight,.text-machine-learning.orange .highlight{
+  background-color: yellow;
+}
+
+.no-highlight{
+  background-color: transparent !important;
+}
+
 #adjustments-tooltip{
   position: fixed;
   display: none;

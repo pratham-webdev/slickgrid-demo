@@ -57,19 +57,28 @@ function collapseAllNow() {
 const gridButtonsBar = `<div id="grid-buttons-bar" class="d-flex align-items-center justify-content-between pb-2">
 ${createGridButtonGroup()}
 </div>
-<div class="p-2 border border-bottom-0 bg-white d-flex align-items-center justify-content-between"><div class="text-dark fw-bold">100 Line Items • 0 Selected • 0 Warnings • 0 Reviewed </div>${lineItemsAdjuster()}</div>`
+<div class="p-2 border border-bottom-0 bg-white d-flex align-items-center justify-content-between"><div class="text-dark fw-bold">100 Line Items • 0 Selected • 0 Warnings • 0 Reviewed </div>${lineItemsAdjuster()}</div>`;
 
 function lineItemsAdjuster(){ 
     return `<div class="d-flex align-items-center justify-content-between">
+    ${selectMLHighlight()}
     ${selectMLColor()}
-    
 <input type="number" class="form-control ms-2" id="line-items-amt" aria-describedby="emailHelp" placeholder="No. of Line Items">
 <button id="set-line-items" class="btn btn-sm btn-outline-primary ms-2" onClick="setLineItems()">Submit</button>
 </div>`
 }
 
+function selectMLHighlight(){ 
+    return `<div class="form-check w-100" onChange="setMLHighlights()">
+<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+<label class="form-check-label" for="flexCheckDefault">
+  Turn On ML Highlights
+</label>
+</div>`
+}
+
 function selectMLColor(){
-    return `<select id="ML-color-setting" class="form-select" onChange="setMLColor()">
+    return `<select id="ML-color-setting" class="form-select ms-2" onChange="setMLColor()">
     <option value="default">ML Blue Theme</option>
     <option value="bordered">ML Blue Bordered Theme</option>
     <option value="black">ML Cards Theme</option>

@@ -28,6 +28,8 @@ var Categories = ["E101 Copying", "E106 Online Research", "E110 Out-of-town trav
 
 var Dates = ["01/01/2009", "01/02/2009", "01/03/2009", "01/04/2009", "01/05/2009", "01/06/2009", "01/07/2009"]
 
+var insightsArray = [`Potential <span class="highlight no-highlight">Block Billing</span> task(s) identified in this line item`, `This line item has been categorized as potential <span class="highlight no-highlight">Block Billing</span>`]
+
 var columns = [{
     id: "sel",
     name: "Item",
@@ -217,6 +219,7 @@ function DataItem(i) {
   this.adj = "$ -100.00";
   this.amt = `$ ${(temp * this.units) -100}`;
   this.desc= description[(Math.round(Math.random() * 4))];
+  this.insights = i%2;
   // this.finish = "01/05/2009";
   // this.title = "Task " + i;
   // this.duration = "5 days";
@@ -284,8 +287,7 @@ function loadView(itemDetail) {
       <p class="mb-2"><b>Description:</b> ${itemDetail.desc}</p>
   ${itemDetail.warning ? warningsOn() : ''}
   ${itemDetail.warning2 ? warningsOn() : ''}
-  ${itemDetail.ml ? MLOn() : ''}
-  ${itemDetail.ml2 ? MLOn() : ''}
+  ${itemDetail.ml ? MLOn(itemDetail.insights) : ''}
 </div>`
 }
 
@@ -293,8 +295,8 @@ function warningsOn(){
   return `<p class="text-danger mb-2"><b>Warning:</b> Line item description contains a charge matching disallowed descriptions: "RESEARCH"</p>`
 }
 
-function MLOn(){
-  return `<div class="mb-1"><div class="text-machine-learning default"><p class="mb-2"><b>Insight:</b> Potential block billing identified as many as multiple activities in single line item description.</p><p class="mb-1 ml-recommend"> <b>Recommendation:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines.</p></div></div>`
+function MLOn(number){
+  return `<div class="mb-1"><div class="text-machine-learning default"><p class="mb-2"><b>Insight:</b> ${insightsArray[number]}</p><p class="mb-1 ml-recommend"> <b>Recommendation:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines.</p></div></div>`
 }
 
 function adjustmentsLoad() {

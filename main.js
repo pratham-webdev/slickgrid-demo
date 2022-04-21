@@ -85,6 +85,10 @@ function setMLColor(){
  $('.text-machine-learning').attr('class', `text-machine-learning ${MLColor}`);
 }
 
+function setMLHighlights(){
+ $('.highlight').toggleClass('no-highlight');
+}
+
 //tooltip configuration
 function adjustmentsTooltipHover(){
   $(".adjustment-icon").on('mouseover mouseout',function(event){
