@@ -105,6 +105,7 @@ const AdjustmentModalTemplate = `<div class="modal fade" id="adjustmentModal" ta
 
 
 const adjustmentsTooltip = `<div id="adjustments-tooltip">
+<p class="text-primary"><b>Total No. of Adjustments: 03</b></p>
 <p class="text-primary"><b>Latest Adjustment - Manual</b></p>
 <p><b>Sethi, Pratham - Adjusted Discount to -10.00 United States, Dollars. 3/10/22</b></p>
 <p><b>Reason for Adjustment :</b> Fee Charges Exceed Home Office Rate</p>
