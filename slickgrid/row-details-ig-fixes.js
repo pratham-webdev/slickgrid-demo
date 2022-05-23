@@ -169,6 +169,24 @@ var columns = [{
     sortable: true,
     formatter: Slick.Formatters.Amount
   },
+  {
+    id: "mtac",
+    name: "MTAC",
+    field: "mtac",
+    minWidth: 40,
+    width: 40,
+    cssClass: "cell-title",
+    sortable: true,
+  },
+  {
+    id: "res",
+    name: "Activity Category",
+    field: "res",
+    minWidth: 40,
+    width: 40,
+    cssClass: "cell-title",
+    sortable: true,
+  },
 ];
 
 // for(var i = 0; i < 5; i++){
@@ -220,6 +238,8 @@ function DataItem(i) {
   this.amt = `$ ${(temp * this.units) -100}`;
   this.desc= description[(Math.round(Math.random() * 4))];
   this.insights = i%2;
+  this.mtac = "Research-Legal";
+  this.res = "Research";
   // this.finish = "01/05/2009";
   // this.title = "Task " + i;
   // this.duration = "5 days";
