@@ -251,6 +251,10 @@ html,body{
   padding: 3px;
   border-radius: 4px;
 }
+.text-machine-learning-stripe{
+  padding: 3px;
+  margin-left:-4px
+}
 
 .text-machine-learning.default{
   background: rgba(13, 110, 253,.2);
@@ -273,11 +277,15 @@ html,body{
   box-shadow: 0 0 8px #ddd;
 }
 
+.text-machine-learning-stripe.stripe-blue{
+  background: rgba(13, 110, 253,.2);
+}
+
 .text-machine-learning.orange .ml-recommend{
   color:#B85900;
 }
 
-.text-machine-learning.default .highlight,.text-machine-learning.bordered .highlight{
+.text-machine-learning.default .highlight,.text-machine-learning.bordered .highlight, .text-machine-learning-stripe.stripe-blue .highlight{
   background-color: rgba(243, 180, 8, 0.9);
 }
 

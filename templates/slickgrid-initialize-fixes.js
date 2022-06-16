@@ -80,6 +80,7 @@ function selectMLHighlight(){
 function selectMLColor(){
     return `<select id="ML-color-setting" class="form-select ms-2" onChange="setMLColor()">
     <option value="default">ML Blue Theme</option>
+    <option value="stripe-blue" selected>ML Blue Stripe</option>
     <option value="bordered">ML Blue Bordered Theme</option>
     <option value="black">ML Cards Theme</option>
     <option value="orange">ML Cards Adv. Theme</option>

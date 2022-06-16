@@ -28,7 +28,7 @@ var Categories = ["E101 Copying", "E106 Online Research", "E110 Out-of-town trav
 
 var Dates = ["01/01/2009", "01/02/2009", "01/03/2009", "01/04/2009", "01/05/2009", "01/06/2009", "01/07/2009"]
 
-var insightsArray = [`Potential <span class="highlight no-highlight">Block Billing</span> task(s) identified in this line item`, `This line item has been categorized as potential <span class="highlight no-highlight">Block Billing</span>`]
+// var insightsArray = [`Potential <span class="highlight no-highlight">Block Billing</span> task(s) identified in this line item`, `This line item has been categorized as potential <span class="highlight no-highlight">Block Billing</span>`]
 
 var columns = [{
     id: "sel",
@@ -234,8 +234,8 @@ function DataItem(i) {
   this.rate = `$ ${temp}.00`;
   this.units = Math.ceil(Math.random() * 4);
   this.disc = "$ 0.00";
-  this.adj = "$ -100.00";
-  this.amt = `$ ${(temp * this.units) -100}`;
+  this.amt = `$ ${(temp * this.units) - (temp * this.units)*10/100}`;
+  this.adj = `$ ${(temp * this.units)*10/100}`
   this.desc= description[(Math.round(Math.random() * 4))];
   this.insights = i%2;
   this.mtac = "Research-Legal";
@@ -307,7 +307,7 @@ function loadView(itemDetail) {
       <p class="mb-2"><b>Description:</b> ${itemDetail.desc}</p>
   ${itemDetail.warning ? warningsOn() : ''}
   ${itemDetail.warning2 ? warningsOn() : ''}
-  ${itemDetail.ml ? MLOn(itemDetail.insights) : ''}
+  ${itemDetail.ml ? MLOn(itemDetail.adj) : ''}
 </div>`
 }
 
@@ -315,8 +315,9 @@ function warningsOn(){
   return `<p class="text-danger mb-2"><b>Warning:</b> Line item description contains a charge matching disallowed descriptions: "RESEARCH"</p>`
 }
 
-function MLOn(number){
-  return `<div class="mb-1"><div class="text-machine-learning default"><p class="mb-2"><b>Insight:</b> ${insightsArray[number]}</p><p class="mb-1 ml-recommend"> <b>Recommendation:</b> Recommendation to adjust this line item by 10% per the company's billing guidelines.</p></div></div>`
+function MLOn(adj){
+  return `<div class="mb-1"><div class="text-machine-learning-stripe stripe-blue"><p class="mb-2"><b>Insight:</b> This line item has been categorized as potential <span class="highlight no-highlight">Block Billing</span></p>
+  <p class="mb-1 ml-recommend"> <b>Recommendation:</b> Recommendation to adjust this line item by 10% (${adj}) per the company's MTAC rules.</p></div></div>`
 }
 
 function adjustmentsLoad() {

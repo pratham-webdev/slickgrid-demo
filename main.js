@@ -82,7 +82,14 @@ function setLineItems() {
 
 function setMLColor(){
   let MLColor = String($('#ML-color-setting').val());
- $('.text-machine-learning').attr('class', `text-machine-learning ${MLColor}`);
+  if(MLColor == 'stripe-blue'){
+    $('.text-machine-learning-stripe').attr('class', `text-machine-learning-stripe ${MLColor}`);
+ $('.text-machine-learning').attr('class', `text-machine-learning-stripe ${MLColor}`);
+  }
+  else{
+  $('.text-machine-learning').attr('class', `text-machine-learning ${MLColor}`);
+  $('.text-machine-learning-stripe').attr('class', `text-machine-learning ${MLColor}`);
+  }
 }
 
 function setMLHighlights(){
@@ -110,5 +117,7 @@ function toggleFullAdjustments() {
   $('#slick-button-8,#slick-button-9').toggle();
 }
 toggleFullAdjustments();
+
+
 
 // resizeContent();
