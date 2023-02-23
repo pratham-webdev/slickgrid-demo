@@ -10,21 +10,21 @@ const navItems = [
         name:'Auto Height',
         href:"index.html"
     },
-    // {
-    //     id:3,
-    //     name:'Pagination',
-    //     href:"index.html"
-    // },
-    // {
-    //     id:4,
-    //     name:'Fixed Width',
-    //     href:"cont-scroll.html"
-    // },
-    // {
-    //     id:5,
-    //     name:'Wrapping',
-    //     href:"peek.html"
-    // },
+    {
+        id:3,
+        name:'Pagination',
+        href:"index.html"
+    },
+    {
+        id:4,
+        name:'Fixed Width',
+        href:"cont-scroll.html"
+    },
+    {
+        id:5,
+        name:'Wrapping',
+        href:"peek.html"
+    },
     {
         id:6,
         name:'Documents',
